@@ -8,7 +8,7 @@ const Hero = () => {
   const [effect, setEffect] = useState<string>("");
 
   const changeEffect = (style: string) => {
-    setEffect(`gen_replace:from_person;to_${style};preserve-geometry_true`);
+    setEffect(`gen_replace:from_female_model;to_${style};preserve-geometry_true`);
   };
 
   const randomSpookyStyle = () => {
@@ -44,27 +44,27 @@ const Hero = () => {
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <HeroActionButton
                 text="Casual Style"
-                onClick={() => changeEffect("Casual Style")}
+                onClick={() => changeEffect("casual style outfit")}
               />
               <HeroActionButton
                 text="Chic Style"
-                onClick={() => changeEffect("Chic Style")}
+                onClick={() => changeEffect("chic style outfit")}
               />
               <HeroActionButton
                 text="Bohemian Style"
-                onClick={() => changeEffect("Bohemian Style")}
+                onClick={() => changeEffect("bohemian style outfit")}
               />
               <HeroActionButton
                 text="Streetwear Style"
-                onClick={() => changeEffect("Streetwear Style")}
+                onClick={() => changeEffect("streetwear style outfit")}
               />
               <HeroActionButton
                 text="Vintage Style"
-                onClick={() => changeEffect("Vintage Style")}
+                onClick={() => changeEffect("vintage style outfit")}
               />
               <HeroActionButton
                 text="Athleisure Style"
-                onClick={() => changeEffect("Athleisure Style")}
+                onClick={() => changeEffect("athleisure style outfit")}
               />
               <HeroActionButton
                 text="Special Spooky Style"
@@ -78,9 +78,9 @@ const Hero = () => {
         <div className="md:w-2/5">
           <div className="absolute bottom-0 right-0">
             <InteractiveImage
-              src="sys-model-base"
-              width={650}
-              height={600}
+              src="sys-model-hd"
+              width={700}
+              height={700}
               alt="Hero Image"
               effect={effect}
             />
