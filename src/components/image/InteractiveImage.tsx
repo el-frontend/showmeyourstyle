@@ -2,7 +2,7 @@
 import { generateImage } from "@/lib/cloudinary/builder";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
-import SparkleImage from "../SparkImageLoading/SparkImageLoading";
+import SparkleImage from "../loading/SparkImageLoading/SparkImageLoading";
 
 type Props = {
   src: string;

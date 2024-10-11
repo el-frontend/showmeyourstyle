@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import InteractiveImage from "../../../../components/image/InteractiveImage";
 import HeroActionButton from "./HeroActionButton";
-import InteractiveImage from "./InteractiveImage";
 
 const Hero = () => {
   const [effect, setEffect] = useState<string>("");

@@ -1,0 +1,34 @@
+@property --animation-dot-delay {
+  syntax: "<number>";
+  inherits: false;
+  initial-value: 1;
+}
+
+.dot {
+  animation: blink 1.4s infinite;
+  animation-delay: calc(var(--animation-dot-delay) * 0.1s);
+}
+
+.animate-dot1 {
+  --animation-dot-delay: 1;
+}
+
+.animate-dot2 {
+  --animation-dot-delay: 2;
+}
+
+.animate-dot3 {
+  --animation-dot-delay: 3;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 0.2;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}

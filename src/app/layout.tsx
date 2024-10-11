@@ -1,10 +1,10 @@
 import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
-import { Montserrat } from 'next/font/google';
+import { Montserrat } from "next/font/google";
 import "./globals.css";
 
 const montserrat = Montserrat({
-  subsets: ['latin'], // Specify the subsets you want
+  subsets: ["latin"], // Specify the subsets you want
 });
 
 export const metadata: Metadata = {
@@ -19,13 +19,11 @@ export default function RootLayout({
 }>) {
   return (
     <ClerkProvider>
-    <html lang="en">
-      <body
-        className={`${montserrat.className} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+      <html lang="en">
+        <body className={`${montserrat.className} antialiased`}>
+          {children}
+        </body>
+      </html>
     </ClerkProvider>
   );
 }
