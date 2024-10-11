@@ -79,8 +79,8 @@ const Hero = () => {
           <div className="absolute bottom-0 right-0">
             <InteractiveImage
               src="sys-model-hd"
-              width={700}
-              height={700}
+              width={600}
+              height={600}
               alt="Hero Image"
               effect={effect}
             />
