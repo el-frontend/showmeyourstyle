@@ -78,9 +78,9 @@ const Hero = () => {
         <div className="md:w-2/5">
           <div className="absolute bottom-0 right-0">
             <InteractiveImage
-              src="sys-model-black-hair"
+              src="sys-model-base"
               width={650}
-              height={650}
+              height={600}
               alt="Hero Image"
               effect={effect}
             />
