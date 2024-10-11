@@ -1,5 +1,5 @@
-import Instructions from "@/sections/home/components/Instructions";
-import Hero from "@/sections/Landing/components/Hero/Hero";
+import Hero from '@/sections/Landing/components/Hero/Hero'
+import Instructions from '@/sections/Landing/components/Instructions'
 
 export default function HomePage() {
   return (
@@ -7,5 +7,5 @@ export default function HomePage() {
       <Hero />
       <Instructions />
     </>
-  );
+  )
 }

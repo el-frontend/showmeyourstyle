@@ -1,2 +1,1 @@
-export { default as TransformationsTable } from './transformations';
-
+export { default as TransformationsTable } from './transformations'

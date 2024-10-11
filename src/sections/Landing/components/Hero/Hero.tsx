@@ -1,32 +1,35 @@
-"use client";
+'use client'
 
-import { useState } from "react";
-import InteractiveImage from "../../../../components/image/InteractiveImage";
-import HeroActionButton from "./HeroActionButton";
+import InteractiveImage from '@/components/image/InteractiveImage'
+
+import { useState } from 'react'
+import HeroActionButton from './HeroActionButton'
 
 const Hero = () => {
-  const [effect, setEffect] = useState<string>("");
+  const [effect, setEffect] = useState<string>('')
 
   const changeEffect = (style: string) => {
-    setEffect(`gen_replace:from_female_model;to_${style};preserve-geometry_true`);
-  };
+    setEffect(
+      `gen_replace:from_female_model;to_${style};preserve-geometry_true`
+    )
+  }
 
   const randomSpookyStyle = () => {
     const spookyStyles = [
-      "costume of a witch",
-      "costume of a vampire",
-      "costume of a ghost",
-      "costume of a pirate",
-      "costume of a werewolf",
-      "costume of a skeleton",
-      "costume of a clown",
-      "costume of a superhero",
-      "costume of a zombie",
-      "costume of a mummy",
-    ];
-    const randomIndex = Math.floor(Math.random() * spookyStyles.length);
-    return spookyStyles[randomIndex];
-  };
+      'costume of a witch',
+      'costume of a vampire',
+      'costume of a ghost',
+      'costume of a pirate',
+      'costume of a werewolf',
+      'costume of a skeleton',
+      'costume of a clown',
+      'costume of a superhero',
+      'costume of a zombie',
+      'costume of a mummy',
+    ]
+    const randomIndex = Math.floor(Math.random() * spookyStyles.length)
+    return spookyStyles[randomIndex]
+  }
 
   return (
     <div className="container mx-auto px-4 py-12 bg-primary relative rounded-3xl">
@@ -40,37 +43,37 @@ const Hero = () => {
             unique outfits tailored to your preferences.
           </p>
           <div className="mb-8">
-            <p className="text-white font-semibold mb-6 text-xl">Try it now!! ✨</p>
+            <p className="text-white font-semibold mb-6 text-xl">
+              Try it now!! ✨
+            </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <HeroActionButton
                 text="Casual Style"
-                onClick={() => changeEffect("casual style outfit")}
+                onClick={() => changeEffect('casual style outfit')}
               />
               <HeroActionButton
                 text="Chic Style"
-                onClick={() => changeEffect("chic style outfit")}
+                onClick={() => changeEffect('chic style outfit')}
               />
               <HeroActionButton
                 text="Bohemian Style"
-                onClick={() => changeEffect("bohemian style outfit")}
+                onClick={() => changeEffect('bohemian style outfit')}
               />
               <HeroActionButton
                 text="Streetwear Style"
-                onClick={() => changeEffect("streetwear style outfit")}
+                onClick={() => changeEffect('streetwear style outfit')}
               />
               <HeroActionButton
                 text="Vintage Style"
-                onClick={() => changeEffect("vintage style outfit")}
+                onClick={() => changeEffect('vintage style outfit')}
               />
               <HeroActionButton
                 text="Athleisure Style"
-                onClick={() => changeEffect("athleisure style outfit")}
+                onClick={() => changeEffect('athleisure style outfit')}
               />
               <HeroActionButton
                 text="Special Spooky Style"
-                onClick={() =>
-                  changeEffect(`${randomSpookyStyle()}`)
-                }
+                onClick={() => changeEffect(`${randomSpookyStyle()}`)}
               />
             </div>
           </div>
@@ -88,7 +91,7 @@ const Hero = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Hero;
+export default Hero
