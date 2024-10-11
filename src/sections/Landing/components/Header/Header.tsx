@@ -1,9 +1,9 @@
 'use client'
 
-import { Button } from "@/components/ui/button";
-import { SignedIn, UserButton } from "@clerk/clerk-react";
-import { SignedOut, SignInButton } from "@clerk/nextjs";
-import Image from "next/image";
+import { Button } from '@/components/ui/button'
+import { SignedIn, UserButton } from '@clerk/clerk-react'
+import { SignedOut, SignInButton } from '@clerk/nextjs'
+import Image from 'next/image'
 
 const Header = () => {
   return (
@@ -48,7 +48,7 @@ const Header = () => {
         </SignedIn>
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

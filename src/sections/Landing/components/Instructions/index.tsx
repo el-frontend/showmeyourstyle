@@ -1,30 +1,30 @@
-import { CloudUploadIcon, ShirtIcon, SparklesIcon } from "lucide-react";
-import Step from "./Step";
+import { CloudUploadIcon, ShirtIcon, SparklesIcon } from 'lucide-react'
+import Step from './Step'
 
 export default function Instructions() {
   const steps = [
     {
       key: 1,
-      title: "Upload your Image",
+      title: 'Upload your Image',
       icon: <CloudUploadIcon size={100} />,
-      description: "Take a full-body photo or upload an existing one",
-      image: "/images/upload-image.png",
+      description: 'Take a full-body photo or upload an existing one',
+      image: '/images/upload-image.png',
     },
     {
       key: 2,
-      title: "Choose your style",
+      title: 'Choose your style',
       icon: <ShirtIcon size={100} />,
-      description: "Select an style from our list or define a new one",
-      image: "/images/style-image.png",
+      description: 'Select an style from our list or define a new one',
+      image: '/images/style-image.png',
     },
     {
       key: 3,
-      title: "See the magic",
+      title: 'See the magic',
       icon: <SparklesIcon size={100} />,
-      description: "Our AI will show you wearing the selected outfit",
-      image: "/images/result-image.png",
+      description: 'Our AI will show you wearing the selected outfit',
+      image: '/images/result-image.png',
     },
-  ];
+  ]
 
   return (
     <div className="bg-gray-200 p-2 lg:p-8 mt-24">
@@ -44,5 +44,5 @@ export default function Instructions() {
         </div>
       </div>
     </div>
-  );
+  )
 }

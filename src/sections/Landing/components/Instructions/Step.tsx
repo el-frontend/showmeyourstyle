@@ -1,11 +1,11 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react'
 
 export type StepProps = {
-  title: string;
-  icon: ReactNode;
-  description: string;
-  image: string;
-};
+  title: string
+  icon: ReactNode
+  description: string
+  image: string
+}
 
 export default function Step({ title, icon, description, image }: StepProps) {
   return (
@@ -17,5 +17,5 @@ export default function Step({ title, icon, description, image }: StepProps) {
       <div className="flex-grow grid place-content-center">{icon}</div>
       <span>{description}</span>
     </div>
-  );
+  )
 }

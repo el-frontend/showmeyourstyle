@@ -1,16 +1,16 @@
-"use server";
+'use server'
 
-import cloudinary from "./client";
+import cloudinary from './client'
 
 type ImageGenConfig = {
-  src: string;
-  width: number;
-  height: number;
-  quality?: number;
-  effect?: string;
-};
+  src: string
+  width: number
+  height: number
+  quality?: number
+  effect?: string
+}
 export const generateImage = async (config: ImageGenConfig) => {
-  const { src, effect, width, height } = config;
+  const { src, effect, width, height } = config
   const url = cloudinary.url(src, {
     transformation: [
       {
@@ -21,13 +21,13 @@ export const generateImage = async (config: ImageGenConfig) => {
         height,
       },
       {
-        quality: "100",
+        quality: '100',
       },
       {
-        fetch_format: "auto",
+        fetch_format: 'auto',
       },
     ],
-  });
-  console.log(url);
-  return url;
-};
+  })
+  console.log(url)
+  return url
+}
