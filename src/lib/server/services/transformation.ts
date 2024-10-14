@@ -4,8 +4,11 @@ import { eq } from 'drizzle-orm'
 import { db } from './../db/db'
 
 import { TransformationsTable } from '../db/schemas'
+import { Transformations } from '../types/transformations'
 
-export const getTransformations = async (userId: string) => {
+export const getTransformations = async (
+  userId: string
+): Promise<Transformations[]> => {
   try {
     return await db
       .select()
