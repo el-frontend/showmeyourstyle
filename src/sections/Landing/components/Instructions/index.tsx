@@ -41,7 +41,7 @@ export default function Instructions() {
         </div>
 
         <div className="flex justify-center mt-16">
-          <button className="relative  bg-foreground  text-white py-4 px-8 rounded-full hover:bg-accent-foreground transition duration-300 text-xl">
+          <button className="relative bg-foreground text-white py-4 px-8 rounded-full hover:bg-accent-foreground transition duration-300 text-xl">
             Style Your Photos!
           </button>
         </div>
