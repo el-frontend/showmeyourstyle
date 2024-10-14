@@ -10,22 +10,22 @@ const Hero = () => {
 
   const changeEffect = (style: string) => {
     setEffect(
-      `gen_replace:from_female_model;to_${style};preserve-geometry_true`
+      `gen_replace:from_female%20model;to_${style};preserve-geometry_true`
     )
   }
 
   const randomSpookyStyle = () => {
     const spookyStyles = [
-      'costume of a witch',
-      'costume of a vampire',
-      'costume of a ghost',
-      'costume of a pirate',
-      'costume of a werewolf',
-      'costume of a skeleton',
-      'costume of a clown',
-      'costume of a superhero',
-      'costume of a zombie',
-      'costume of a mummy',
+      'costume%20of%20a%20witch',
+      'costume%20of%20a%20vampire',
+      'costume%20of%20a%20ghost',
+      'costume%20of%20a%20pirate',
+      'costume%20of%20a%20werewolf',
+      'costume%20of%20a%20skeleton',
+      'costume%20of%20a%20clown',
+      'costume%20of%20a%20superhero',
+      'costume%20of%20a%20zombie',
+      'costume%20of%20a%20mummy',
     ]
     const randomIndex = Math.floor(Math.random() * spookyStyles.length)
     return spookyStyles[randomIndex]
@@ -48,32 +48,32 @@ const Hero = () => {
             </p>
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               <HeroActionButton
-                text="Casual Style"
-                onClick={() => changeEffect('casual style outfit')}
+              text="Casual Style"
+              onClick={() => changeEffect('casual%20style%20outfit')}
               />
               <HeroActionButton
-                text="Chic Style"
-                onClick={() => changeEffect('chic style outfit')}
+              text="Chic Style"
+              onClick={() => changeEffect('chic%20style%20outfit')}
               />
               <HeroActionButton
-                text="Bohemian Style"
-                onClick={() => changeEffect('bohemian style outfit')}
+              text="Bohemian Style"
+              onClick={() => changeEffect('bohemian%20style%20outfit')}
               />
               <HeroActionButton
-                text="Streetwear Style"
-                onClick={() => changeEffect('streetwear style outfit')}
+              text="Streetwear Style"
+              onClick={() => changeEffect('streetwear%20style%20outfit')}
               />
               <HeroActionButton
-                text="Vintage Style"
-                onClick={() => changeEffect('vintage style outfit')}
+              text="Vintage Style"
+              onClick={() => changeEffect('vintage%20style%20outfit')}
               />
               <HeroActionButton
-                text="Athleisure Style"
-                onClick={() => changeEffect('athleisure style outfit')}
+              text="Athleisure Style"
+              onClick={() => changeEffect('athleisure%20style%20outfit')}
               />
               <HeroActionButton
-                text="Special Spooky Style"
-                onClick={() => changeEffect(`${randomSpookyStyle()}`)}
+              text="Special Spooky Style"
+              onClick={() => changeEffect(`${randomSpookyStyle()}`)}
               />
             </div>
           </div>
