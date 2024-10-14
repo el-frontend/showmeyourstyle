@@ -10,7 +10,7 @@ const Hero = () => {
 
   const changeEffect = (style: string) => {
     setEffect(
-      `gen_replace:from_female%20model;to_${style};preserve-geometry_true`
+      `gen_replace:from_shirt;to_${style};preserve-geometry_true`
     )
   }
 
