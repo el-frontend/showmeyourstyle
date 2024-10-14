@@ -1,8 +1,13 @@
+'use client'
+
 import { Button } from '@/components/ui/button'
 import { CloudUploadIcon, ShirtIcon, SparklesIcon } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import Step from './Step'
 
 export default function Instructions() {
+  const { push } = useRouter()
+
   const steps = [
     {
       key: 1,
@@ -42,7 +47,7 @@ export default function Instructions() {
         </div>
 
         <div className="flex justify-center mt-16">
-          <Button className="py-8 px-8  rounded-full text-xl">
+          <Button className="py-8 px-8 rounded-full text-xl" onClick={() => push('/editor')}>
             Style Your Photos!
           </Button>
         </div>
