@@ -18,7 +18,7 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${montserrat.className} antialiased`}>
+        <body className={`${montserrat.className} antialiased dark`}>
           {children}
         </body>
       </html>

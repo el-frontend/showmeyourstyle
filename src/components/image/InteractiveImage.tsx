@@ -1,5 +1,5 @@
 'use client'
-import { generateImage } from '@/lib/cloudinary/builder'
+import { generateImage } from '@/lib/server/cloudinary/builder'
 import Image from 'next/image'
 import { useCallback, useEffect, useState } from 'react'
 import SparkleImage from '../loading/SparkImageLoading/SparkImageLoading'
