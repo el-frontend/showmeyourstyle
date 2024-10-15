@@ -8,14 +8,16 @@ type ImageGenConfig = {
   height: number
   quality?: number
   effect?: string
+  bgEffect?: string
 }
 export const generateImage = async (config: ImageGenConfig) => {
-  const { src, effect, width, height } = config
+  const { src, effect, width, height, bgEffect } = config
   const url = cloudinary.url(src, {
     transformation: [
       {
         effect,
       },
+      { effect: bgEffect },
       {
         width,
         height,

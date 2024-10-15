@@ -1,0 +1,1 @@
+ALTER TABLE "transformations" ADD COLUMN "base_image_url" text NOT NULL;

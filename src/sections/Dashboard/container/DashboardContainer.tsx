@@ -1,18 +1,15 @@
-import { Transformations } from '@/lib/server/types/transformations'
-import { ModernDashboardComponent } from '../components/modern-dashboard'
+import { Dashboard } from '../components/Dashboard'
 
 type Props = {
-  data: Transformations[]
+  gallery: React.ReactNode
+  transformations: React.ReactNode
 }
 
-const DashboardContainer = ({ data }: Props) => {
-    console.log(data)
+const DashboardContainer = ({ gallery, transformations }: Props) => {
   return (
-    <main className="w-full">
-      <div className="grid gap-4 md:gap-8">
-        <ModernDashboardComponent />
-      </div>
-    </main>
+    <div className="grid gap-4 md:gap-8">
+      <Dashboard gallery={gallery} transformations={transformations} />
+    </div>
   )
 }
 

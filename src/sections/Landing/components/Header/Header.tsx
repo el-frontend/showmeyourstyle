@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button'
 import { SignedIn, UserButton } from '@clerk/clerk-react'
 import { SignedOut, SignInButton } from '@clerk/nextjs'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const Header = () => {
   return (
@@ -44,7 +45,12 @@ const Header = () => {
           </SignInButton>
         </SignedOut>
         <SignedIn>
-          <UserButton />
+          <div className="flex gap-4">
+            <Link href="/dashboard" className="rounded-full text-background px-4 py-2  border-background border  hover:shadow-md">
+              Dashboard
+            </Link>
+            <UserButton />
+          </div>
         </SignedIn>
       </div>
     </header>

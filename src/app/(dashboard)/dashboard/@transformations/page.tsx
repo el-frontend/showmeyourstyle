@@ -1,5 +1,5 @@
 import { getTransformations } from '@/lib/server/services/transformation'
-import Dashboard from '@/sections/Dashboard/components/dashboard-01'
+import DashboardTransformations from '@/sections/Dashboard/components/Transformations/Transformations'
 import { currentUser } from '@clerk/nextjs/server'
 import { redirect } from 'next/navigation'
 
@@ -8,9 +8,5 @@ export default async function DashboardPage() {
   if (!user) redirect('/sign-in')
 
   const transformations = await getTransformations(user.id)
-  return (
-    <>
-      <Dashboard data={transformations} />
-    </>
-  )
+  return <DashboardTransformations data={transformations} />
 }

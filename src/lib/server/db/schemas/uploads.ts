@@ -1,12 +1,10 @@
-import { pgTable, serial, text, timestamp, varchar } from 'drizzle-orm/pg-core'
+import { pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core'
 
-const TransformationsTable = pgTable('transformations', {
+const UploadsTable = pgTable('uploads', {
   id: serial('id').primaryKey(),
   userId: text('user_id').notNull(),
   publicId: text('public_id').notNull(),
-  prompt: varchar('prompt', { length: 255 }).notNull(),
   url: text('url').notNull(),
-  baseImageUrl: text('base_image_url').notNull(),
   createdAt: timestamp('created_at').defaultNow().notNull(),
   updatedAt: timestamp('updated_at')
     .defaultNow()
@@ -16,4 +14,4 @@ const TransformationsTable = pgTable('transformations', {
     }),
 })
 
-export default TransformationsTable
+export default UploadsTable

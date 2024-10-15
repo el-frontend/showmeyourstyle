@@ -22,8 +22,10 @@ export const getTransformations = async (
 
 export const createTransformation = async (
   userId: string,
+  publicId: string,
   prompt: string,
-  url: string
+  url: string,
+  baseImageUrl: string
 ) => {
   try {
     return await db
@@ -32,6 +34,8 @@ export const createTransformation = async (
         userId,
         prompt,
         url,
+        publicId,
+        baseImageUrl
       })
       .returning()
   } catch (error) {

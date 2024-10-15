@@ -10,6 +10,7 @@ type Props = {
   height: number
   alt: string
   effect: string
+  bgEffect?: string
 }
 
 const InteractiveImage: React.FC<Props> = ({
@@ -18,18 +19,31 @@ const InteractiveImage: React.FC<Props> = ({
   height,
   alt,
   effect,
+  bgEffect,
 }) => {
   const [url, setUrl] = useState<string>('')
+  const [retry, setRetry] = useState<number>(0)
   const [loading, setLoading] = useState<boolean>(true)
 
   const getImageUrl = useCallback(async () => {
-    setLoading(true)
-    const url = await generateImage({ src, width, height, effect })
-    const response = await fetch(url)
-    console.log(response)
-    setUrl(url)
-    setTimeout(() => setLoading(false), 1000)
-  }, [src, height, width, effect])
+    try {
+      setRetry(retry => retry + 1)
+      setLoading(true)
+      const url = await generateImage({ src, width, height, effect, bgEffect })
+      const response = await fetch(url)
+      console.log(response)
+      setUrl(url)
+      setTimeout(() => setLoading(false), 1000)
+      setRetry(0)
+    } catch (e) {
+      if (retry < 3) {
+        getImageUrl()
+        return
+      }
+      setUrl(src)
+      console.error(e)
+    }
+  }, [src, height, width, effect, bgEffect])
 
   useEffect(() => {
     getImageUrl()
