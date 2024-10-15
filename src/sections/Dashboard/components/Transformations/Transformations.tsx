@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import useCreateQueryString from '@/hooks/useCreateQueryString'
 import { Transformations } from '@/lib/server/types/transformations'
 import { motion } from 'framer-motion'
 import { PlusCircle, ZoomIn } from 'lucide-react'
@@ -13,6 +14,13 @@ type Props = {
 }
 
 const DashboardTransformations: React.FC<Props> = ({ data }) => {
+  const { createQueryAndNavigate } = useCreateQueryString()
+  const goToUploadFile = () => {
+    createQueryAndNavigate([
+      { name: 'tab', value: 'uploads' },
+      { name: 'upload', value: 'true' },
+    ])
+  }
   return (
     <div className="flex flex-col">
       <div className="flex justify-between items-center mb-8">
@@ -22,7 +30,7 @@ const DashboardTransformations: React.FC<Props> = ({ data }) => {
         <Link href="/editor">
           <Button className="text-foreground">
             <PlusCircle className="mr-0 md:mr-2 h-4 w-4" />
-            <span className='hidden md:block'>Generate new ideas</span>
+            <span className="hidden md:block">Generate new ideas</span>
           </Button>
         </Link>
       </div>
@@ -79,7 +87,9 @@ const DashboardTransformations: React.FC<Props> = ({ data }) => {
           </motion.div>
         ))}
       </motion.div>
-      {data.length === 0 && <DashboardEmptyImagePlaceholder />}
+      {data.length === 0 && (
+        <DashboardEmptyImagePlaceholder onClick={goToUploadFile} />
+      )}
     </div>
   )
 }

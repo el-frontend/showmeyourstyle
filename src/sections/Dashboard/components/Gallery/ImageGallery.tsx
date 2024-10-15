@@ -18,7 +18,8 @@ import {
 } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useEffect, useState } from 'react'
 import DashboardEmptyImagePlaceholder from '../EmptyImagePlaceholder/EmptyImagePlaceholder'
 import CloudinaryUploadImage from '../Upload/UploadImage'
 
@@ -29,6 +30,14 @@ type Props = {
 export default function ImageGallery({ images }: Props) {
   const [open, setOpen] = useState<boolean>(false)
   const { user } = useUser()
+  const query = useSearchParams()
+  const upload = query.get('upload')
+
+  useEffect(() => {
+    if (upload === 'true') {
+      setOpen(true)
+    }
+  }, [upload])
 
   const handleUploadComplete = async (data: UploadApiResponse[]) => {
     if (!user) return
@@ -45,7 +54,7 @@ export default function ImageGallery({ images }: Props) {
 
   return (
     <motion.div
-      className="p-4 bg-background text-foreground"
+      className="bg-background text-foreground"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
@@ -57,7 +66,11 @@ export default function ImageGallery({ images }: Props) {
           onClose={() => setOpen(false)}
           onUploadComplete={handleUploadComplete}
         >
-          <Button className="text-foreground" onClick={() => setOpen(true)}>
+          <Button
+            className="text-foreground"
+            id="upload-images"
+            onClick={() => setOpen(true)}
+          >
             <UploadIcon className="mr-2 h-4 w-4" />
             Upload Images
           </Button>
@@ -120,7 +133,9 @@ export default function ImageGallery({ images }: Props) {
           </Dialog>
         ))}
       </div>
-      {images.length === 0 && <DashboardEmptyImagePlaceholder />}
+      {images.length === 0 && (
+        <DashboardEmptyImagePlaceholder onClick={() => setOpen(true)} />
+      )}
     </motion.div>
   )
 }

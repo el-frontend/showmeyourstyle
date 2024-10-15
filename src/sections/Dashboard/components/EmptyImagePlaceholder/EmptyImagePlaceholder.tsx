@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Upload } from "lucide-react"
 
-export default function DashboardEmptyImagePlaceholder() {
+export default function DashboardEmptyImagePlaceholder({onClick}: {onClick: () => void}) {
   return (
     <Card className="w-full max-w-3xl mx-auto">
       <CardContent className="p-6">
@@ -14,7 +14,7 @@ export default function DashboardEmptyImagePlaceholder() {
             </div>
             <h3 className="text-xl font-semibold">No images uploaded yet</h3>
             <p className="text-sm text-gray-500">Upload your first image to start your gallery</p>
-            <Button className="mt-4">
+            <Button className="mt-4" onClick={onClick}>
               Upload Image
             </Button>
           </div>
