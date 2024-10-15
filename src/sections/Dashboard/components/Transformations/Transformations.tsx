@@ -16,13 +16,13 @@ const DashboardTransformations: React.FC<Props> = ({ data }) => {
   return (
     <div className="flex flex-col">
       <div className="flex justify-between items-center mb-8">
-        <h2 className="text-2xl font-semibold text-foreground">
+        <h2 className="text-md md:text-2xl font-semibold text-foreground">
           Transformations Gallery
         </h2>
         <Link href="/editor">
           <Button className="text-foreground">
-            <PlusCircle className="mr-2 h-4 w-4" />
-            Generate new ideas
+            <PlusCircle className="mr-0 md:mr-2 h-4 w-4" />
+            <span className='hidden md:block'>Generate new ideas</span>
           </Button>
         </Link>
       </div>

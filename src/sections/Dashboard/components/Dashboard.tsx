@@ -13,12 +13,12 @@ type Props = {
 
 export function Dashboard({ gallery, transformations }: Props) {
   return (
-    <div className="px-8 py-12 bg-background">
+    <div className="px-4 md:px-8 py-8 md:py-12 bg-background w-full">
       <motion.h1
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-4xl font-bold mb-8 text-center text-foreground"
+        className="text-xl md:text-4xl font-bold mb-8 text-center text-foreground"
       >
         ✨ Explore the Magic You Create ✨
       </motion.h1>
@@ -30,18 +30,18 @@ export function Dashboard({ gallery, transformations }: Props) {
       >
         <Tabs
           defaultValue="transformations"
-          className="w-full justify-center items-center flex flex-col"
+          className="w-full justify-center items-center flex flex-col gap-2"
         >
-          <TabsList className="flex w-auto px-6 py-4 h-max">
+          <TabsList className="flex w-auto px-2 py-2 md:px-6 md:py-4 h-max">
             <TabsTrigger
               value="transformations"
-              className="p-4 w-max text-md font-medium flex gap-2"
+              className="p-2 md:p-4 w-max text-sm md:text-md font-medium flex gap-2"
             >
               <Sparkle /> Your Transformations
             </TabsTrigger>
             <TabsTrigger
               value="uploads"
-              className="p-4 w-max text-md font-medium flex gap-2"
+              className="p-2 md:p-4 w-max text-sm md:text-md font-medium flex gap-2"
             >
               <ImageUp /> Your images
             </TabsTrigger>

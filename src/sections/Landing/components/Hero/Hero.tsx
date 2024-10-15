@@ -32,7 +32,7 @@ const Hero = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12 bg-primary relative rounded-3xl">
+    <div className="container mx-auto px-4 py-12 bg-primary relative rounded-3xl" id="hero">
       <div className="flex flex-col md:flex-row">
         <div className="w-full md:w-3/5 p-12 flex flex-col justify-center">
           <h1 className="text-5xl font-bold text-white mb-6">

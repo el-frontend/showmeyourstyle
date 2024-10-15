@@ -14,7 +14,7 @@ interface Sparkle {
 
 const generateSparkle = (): Sparkle => ({
   id: Math.random(),
-  size: Math.random() * 10 + 5, // Increased size for visibility
+  size: Math.random() * 20 + 5, // Increased size for visibility
   duration: Math.random() * 2 + 1,
   delay: Math.random() * 2,
   style: {

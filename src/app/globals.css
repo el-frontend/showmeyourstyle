@@ -4,6 +4,11 @@
 
 body {
   font-family: 'Montserrat', Helvetica, sans-serif;
+  scroll-behavior: smooth;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 @layer utilities {

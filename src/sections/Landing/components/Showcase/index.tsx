@@ -16,7 +16,7 @@ export default function Showcase() {
   ].map((couple, index) => ({ id: index, itemOne: base, itemTwo: couple }))
 
   return (
-    <div className="container mx-auto py-24 px-2 lg:px-16">
+    <div className="container mx-auto py-24 px-2 lg:px-16" id="showcase">
       <div className="flex justify-between items-center mb-16">
         <h2 className="text-4xl font-bold text-primary">Showcase</h2>
         <div className="max-w-[60ch] border-primary border-4 p-8 text-primary text-lg">

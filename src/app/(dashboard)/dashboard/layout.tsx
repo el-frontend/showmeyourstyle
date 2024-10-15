@@ -15,7 +15,7 @@ export default function RootLayout({
   transformations: React.ReactNode
 }>) {
   return (
-    <div className="flex min-h-screen w-full flex-col overflow-hidden">
+    <div className="flex min-h-screen flex-col overflow-hidden w-screen">
       <DashboardHeader />
       <main className="w-full overflow-auto mt-16">
         <DashboardContainer

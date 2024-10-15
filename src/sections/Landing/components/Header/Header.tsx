@@ -19,19 +19,19 @@ const Header = () => {
           />
         </div>
         <nav>
-          <ul className="flex space-x-6 text-base font-medium text-foreground">
+          <ul className="flex space-x-6 text-base font-medium text-gray-600 ">
             <li>
-              <a href="#" className="hover:text-gray-900">
+              <a href="#hero" className="hover:text-background">
                 Home
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-900">
+              <a href="#stylize_you" className="hover:text-background">
                 Stylize you
               </a>
             </li>
             <li>
-              <a href="#" className="hover:text-gray-900">
+              <a href="#showcase" className="hover:text-background">
                 Showcase
               </a>
             </li>

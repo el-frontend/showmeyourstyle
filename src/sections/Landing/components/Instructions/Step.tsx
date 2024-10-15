@@ -18,6 +18,7 @@ export default function Step({
   return (
     <div
       className="aspect-square bg-cover bg-center rounded-xl text-center text-white flex flex-col p-4 hover:bg-right transition-all duration-600 hover:shadow-xl hover:shadow-red-200 step-container"
+      id="stylize_you"
       style={{
         backgroundImage: `url(${image})`,
         backgroundColor: bgColor,

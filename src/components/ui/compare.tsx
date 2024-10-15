@@ -28,7 +28,8 @@ export default function Compare({
       portrait={false}
       className="rounded-lg shadow-md justify-self-center"
       style={{ width, height }}
-      position={25}
+      position={50}
+       
     />
   )
 }
