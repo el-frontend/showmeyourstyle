@@ -19,7 +19,7 @@ export default function TransformPreview() {
         src="/images/sys-model-base.webp"
         alt="Bottom Image"
         layout="fill"
-        objectFit="cover"
+        style={{objectFit: 'cover'}}
         className="rounded-lg"
       />
 

@@ -10,9 +10,10 @@ export default function Editor() {
           className="absolute inset-0 bg-cover bg-center"
           style={{
             backgroundImage: "url('/images/sys-model-base-2.webp')",
-            filter: 'blur(16px)',
+            filter: 'blur(24px)',
+            opacity: 0.8,
           }}
-        ></div>
+        />
 
         <div className="z-10">
           <Image
@@ -27,7 +28,7 @@ export default function Editor() {
       <div className="w-2/5 p-12 flex flex-col">
         <div className="flex-grow">
           <h2 className="font-bold mb-4">Select style</h2>
-          <div className="h-fit grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-8">
+          <div className="h-fit grid grid-cols-[repeat(auto-fit,minmax(100px,1fr))] gap-8">
             <TransformPreview />
             <TransformPreview />
             <TransformPreview />

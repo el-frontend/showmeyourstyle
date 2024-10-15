@@ -10,22 +10,22 @@ const Hero = () => {
 
   const changeEffect = (style: string) => {
     setEffect(
-      `gen_replace:from_shirt;to_${style};preserve-geometry_true`
+      `gen_replace:from_clothes;to_${style};preserve-geometry_true`
     )
   }
 
   const randomSpookyStyle = () => {
     const spookyStyles = [
-      'costume%20of%20a%20witch',
-      'costume%20of%20a%20vampire',
-      'costume%20of%20a%20ghost',
-      'costume%20of%20a%20pirate',
-      'costume%20of%20a%20werewolf',
-      'costume%20of%20a%20skeleton',
-      'costume%20of%20a%20clown',
-      'costume%20of%20a%20superhero',
-      'costume%20of%20a%20zombie',
-      'costume%20of%20a%20mummy',
+      'costume%20of%20a%20witch%20with%20a%20hat',
+      'costume%20of%20a%20vampire%20with%20a%20cape',
+      'costume%20of%20a%20ghost%20with%20a%20sheet',
+      'costume%20of%20a%20pirate%20with%20a%20hat',
+      'costume%20of%20a%20werewolf%20with%20a%20mask',
+      'costume%20of%20a%20skeleton%20with%20a%20mask',
+      'costume%20of%20a%20clown%20with%20a%20mask',
+      'costume%20of%20a%20superhero%20with%20a%20cape',
+      'costume%20of%20a%20zombie%20with%20a%20makeup',
+      'costume%20of%20a%20mummy%20with%20a%20bandage',
     ]
     const randomIndex = Math.floor(Math.random() * spookyStyles.length)
     return spookyStyles[randomIndex]
