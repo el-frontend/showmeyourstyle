@@ -4,7 +4,7 @@ import cloudinary from './client'
 
 export const uploadImage = async (file: string): Promise<UploadApiResponse> => {
   try {
-    const response = await cloudinary.uploader.upload(file, { async: true })
+    const response = await cloudinary.uploader.upload(file)
     return response
   } catch (e) {
     console.error(e)

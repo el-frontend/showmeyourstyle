@@ -15,7 +15,7 @@ import {
     TooltipProvider,
     TooltipTrigger,
 } from '@/components/ui/tooltip'
-import { uploadImageBulk } from '@/lib/server/cloudinary/upload'
+import { uploadImage } from '@/lib/server/cloudinary/upload'
 import { convertFileToBase64 } from '@/lib/server/utils/file'
 import { UploadApiResponse } from 'cloudinary'
 import { AlertCircle, CheckCircle, File, Upload } from 'lucide-react'
@@ -82,11 +82,17 @@ export default function CloudinaryUploadImage({
       const textFiles = await Promise.all(
         files.map(async file => await convertFileToBase64(file))
       )
-      const response = await uploadImageBulk(textFiles)
-      console.log('Response:', response)
+      let items = 0
+      const data = []
+      for (const file of textFiles) {
+        items += 1
+        setUploadProgress((items / files.length) * 100)
+        const uploadedFile = await uploadImage(file)
+        data.push(uploadedFile)
+      }
       setUploadProgress(100)
       setUploadComplete(true)
-      onUploadComplete(response)
+      onUploadComplete(data)
       setUploading(false)
     } catch (e) {
       console.error(e)
@@ -135,7 +141,7 @@ export default function CloudinaryUploadImage({
                   Drag and drop some files here, or click to select files
                 </p>
                 <p className="mt-1 text-xs text-foreground">
-                  (Up to 5 files, 5MB each. Images and PDFs only)
+                  (Up to 5 files, 3MB each. Images only)
                 </p>
               </div>
             )}
