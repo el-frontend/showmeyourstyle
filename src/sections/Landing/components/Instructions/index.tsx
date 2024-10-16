@@ -36,11 +36,11 @@ export default function Instructions() {
   ]
 
   return (
-    <div className="bg-gray-100 p-2 lg:py-14 mt-24">
+    <div className="bg-gray-100 p-4 md:py-12 lg:py-14 mt-24">
       <div className="container mx-auto mb-8 px-2 lg:px-16">
-        <h2 className="text-4xl font-bold mb-16 text-background">How Does It Works?</h2>
+        <h2 className="text-2xl md:text-4xl font-bold mb-16 text-background">How Does It Works?</h2>
 
-        <div className="grid lg:grid-cols-3 gap-4 lg:gap-16 mt-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 lg:gap-16 mt-4">
           {steps.map(({ key, ...step }) => (
             <Step key={key} {...step} />
           ))}

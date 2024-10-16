@@ -32,21 +32,21 @@ const Hero = () => {
   }
 
   return (
-    <div className="container mx-auto px-4 py-12 bg-primary relative rounded-3xl" id="hero">
-      <div className="flex flex-col md:flex-row">
-        <div className="w-full md:w-3/5 p-12 flex flex-col justify-center">
-          <h1 className="text-5xl font-bold text-white mb-6">
+    <div className="container mx-auto px-2 py-0 md:px-4 md:pt-12 bg-primary relative rounded-none md:rounded-3xl overflow-x-hidden" id="hero">
+      <div className="relative flex flex-col md:flex-row min-h-[650px]">
+        <div className="w-full lg:w-3/5 p-4 lg:p-12 flex flex-col justify-start lg:justify-center">
+          <h1 className="text-2xl md:text-5xl font-bold text-white mb-6">
             Unleash Your Style with AI-Driven Fashion Creations
           </h1>
           <p className="text-gray-300 mb-8">
             Transform your wardrobe by uploading photos and letting AI design
             unique outfits tailored to your preferences.
           </p>
-          <div className="mb-8">
-            <p className="text-white font-semibold mb-6 text-xl">
+          <div className="w-full mb-8 absolute bottom-0 left-0 right-0 lg:relative z-50">
+            <p className="text-white font-semibold mb-6 text-xl hidden md:block">
               Try it now!! ✨
             </p>
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-4 lg:grid-cols-3 gap-4">
               <HeroActionButton
               text="Casual Style"
               onClick={() => changeEffect('casual%20style%20outfit')}
@@ -78,7 +78,7 @@ const Hero = () => {
             </div>
           </div>
         </div>
-        <div className="md:w-2/5">
+        <div className="w-0 lg:w-2/5">
           <div className="absolute bottom-0 right-0">
             <InteractiveImage
               src="sys-model-hd"

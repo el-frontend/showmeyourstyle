@@ -24,7 +24,7 @@ export default function Step({
         backgroundColor: bgColor,
       }}
     >
-      <span className="text-2xl font-medium">{title}</span>
+      <span className="text-lg lg:text-2xl font-medium">{title}</span>
       <div className="flex-grow grid place-content-center">{icon}</div>
       <span>{description}</span>
     </div>

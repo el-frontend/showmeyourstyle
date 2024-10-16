@@ -18,8 +18,8 @@ export type CompareProps = {
 export default function Compare({
   itemOne,
   itemTwo,
-  width = 400,
-  height = 400,
+  width = 300,
+  height = 300,
 }: CompareProps) {
   return (
     <ReactCompareSlider

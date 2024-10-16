@@ -18,7 +18,7 @@ const Header = () => {
             height={50}
           />
         </div>
-        <nav>
+        <nav className='hidden md:block'>
           <ul className="flex space-x-6 text-base font-medium text-gray-600 ">
             <li>
               <a href="#hero" className="hover:text-background">
@@ -46,7 +46,10 @@ const Header = () => {
         </SignedOut>
         <SignedIn>
           <div className="flex gap-4">
-            <Link href="/dashboard" className="rounded-full text-background px-4 py-2  border-background border  hover:shadow-md">
+            <Link
+              href="/dashboard"
+              className="rounded-full text-background px-4 py-2  border-background border  hover:shadow-md"
+            >
               Dashboard
             </Link>
             <UserButton />
