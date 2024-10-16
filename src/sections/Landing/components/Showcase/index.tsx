@@ -18,8 +18,8 @@ export default function Showcase() {
   return (
     <div className="container mx-auto py-24 px-2 lg:px-16" id="showcase">
       <div className="flex flex-col gap-4 md:flex-row justify-center md:justify-between items-center mb-16">
-        <h2 className="text-4xl font-bold text-primary">Showcase</h2>
-        <div className="max-w-[60ch]  border-primary border-4 p-8 text-primary text-lg">
+        <h2 className="text-4xl font-bold text-foreground">Showcase</h2>
+        <div className="max-w-[60ch]  border-foreground border-4 p-8 text-foreground text-lg">
           <p>
             Explore the limitless possibilities of fashion with our AI-powered
             design tool! Each image in our showcase is the result of

@@ -12,8 +12,9 @@ export default function LandingLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-background relative overflow-x-hidden">
       <Header />
+      {/* <HalloweenTheme /> */}
       {children}
     </div>
   );

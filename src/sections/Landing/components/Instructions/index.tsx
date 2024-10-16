@@ -36,7 +36,7 @@ export default function Instructions() {
   ]
 
   return (
-    <div className="bg-gray-100 p-4 md:py-12 lg:py-14 mt-24">
+    <div className="bg-gray-100 p-4 md:py-12 lg:py-24">
       <div className="container mx-auto mb-8 px-2 lg:px-16">
         <h2 className="text-2xl md:text-4xl font-bold mb-16 text-background">How Does It Works?</h2>
 

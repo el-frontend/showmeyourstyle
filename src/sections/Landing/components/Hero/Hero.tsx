@@ -10,7 +10,7 @@ const Hero = () => {
 
   const changeEffect = (style: string) => {
     setEffect(
-      `gen_replace:from_clothes;to_${style};preserve-geometry_true`
+      `gen_replace:from_clothes%20and%20head;to_${style};preserve-geometry_true`
     )
   }
 
@@ -32,8 +32,8 @@ const Hero = () => {
   }
 
   return (
-    <div className="container mx-auto px-2 py-0 md:px-4 md:pt-12 bg-primary relative rounded-none md:rounded-3xl overflow-x-hidden" id="hero">
-      <div className="relative flex flex-col md:flex-row min-h-[650px]">
+    <div className="container mx-auto px-2 py-0 md:px-4 md:pt-12 bg-background relative rounded-none md:rounded-3xl overflow-hidden" id="hero">
+      <div className="relative flex flex-col md:flex-row min-h-[650px] overflow-hidden">
         <div className="w-full lg:w-3/5 p-4 lg:p-12 flex flex-col justify-start lg:justify-center">
           <h1 className="text-2xl md:text-5xl font-bold text-white mb-6">
             Unleash Your Style with AI-Driven Fashion Creations
