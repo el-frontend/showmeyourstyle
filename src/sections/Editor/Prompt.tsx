@@ -2,7 +2,11 @@
 import { Send } from 'lucide-react'
 import React, { useEffect, useRef, useState } from 'react'
 
-export default function Prompt() {
+export type PropmtProps = {
+  onSubmit?: (data: string) => void
+}
+
+export default function Prompt({ onSubmit }: PropmtProps) {
   const [value, setValue] = useState('')
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
@@ -18,7 +22,7 @@ export default function Prompt() {
   }
 
   const handleSubmit = () => {
-    console.log('Submitted:', value)
+    onSubmit?.(value)
     setValue('')
   }
 
@@ -30,7 +34,7 @@ export default function Prompt() {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-4 bg-background">
+    <div className="w-full max-w-3xl mx-auto p-4">
       <div className="relative">
         <textarea
           ref={textareaRef}
@@ -39,7 +43,7 @@ export default function Prompt() {
           onKeyDown={handleKeyDown}
           placeholder="Write your own style..."
           rows={1}
-          className="w-full resize-none overflow-hidden bg-background text-foreground placeholder:text-muted-foreground focus:outline-none py-3 px-4 pr-12 rounded-lg border border-input"
+          className="w-full resize-none overflow-hidden placeholder:text-muted-foreground focus:outline-none py-3 px-4 pr-12 rounded-lg border border-input"
         />
         <button
           onClick={handleSubmit}
