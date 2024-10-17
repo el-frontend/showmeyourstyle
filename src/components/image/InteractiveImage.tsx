@@ -11,6 +11,7 @@ type Props = {
   alt: string
   effect?: string
   bgEffect?: string
+  objectFit?: 'cover' | 'contain'
   onUrlChange?: (url: string) => void
 }
 
@@ -22,6 +23,7 @@ const InteractiveImage: React.FC<Props> = ({
   effect,
   bgEffect,
   onUrlChange,
+  objectFit = 'cover',
 }) => {
   const [url, setUrl] = useState<string>('')
   const [retry, setRetry] = useState<number>(0)
@@ -31,7 +33,7 @@ const InteractiveImage: React.FC<Props> = ({
     try {
       setRetry(retry => retry + 1)
       setLoading(true)
-      const url = await generateImage({ src, width, height, effect, bgEffect })
+      const url = await generateImage({ src, effect, bgEffect })
       const response = await fetch(url)
       console.log(response)
       setUrl(url)
@@ -54,7 +56,12 @@ const InteractiveImage: React.FC<Props> = ({
 
   return (
     <SparkleImage loading={loading}>
-      <Image src={url} {...(!width || !height ? { fill: true } : { width, height })} alt={alt} />
+      <Image
+        src={url}
+        {...(!width || !height ? { fill: true } : { width, height })}
+        alt={alt}
+        style={{ objectFit }}
+      />
     </SparkleImage>
   )
 }

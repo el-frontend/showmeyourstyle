@@ -9,7 +9,7 @@ import { CanvasHeader } from './CanvasHeader'
 export default function Canvas() {
   const q = useSearchParams()
   const image = q.get('image')
-  const { effect, setTransformedUrl } = useEditorStore()
+  const { effect, background, setTransformedUrl } = useEditorStore()
 
   return (
     <div className="flex-grow h-full relative">
@@ -18,6 +18,7 @@ export default function Canvas() {
         <Preview
           image={image}
           effect={effect}
+          background={background}
           onUrlChange={setTransformedUrl}
         />
       ) : (

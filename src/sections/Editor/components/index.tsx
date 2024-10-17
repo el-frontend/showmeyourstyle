@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { TooltipProvider } from '@/components/ui/tooltip'
 import { useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 import useBuildImages from '../hooks/useBuildImages'
@@ -22,12 +23,12 @@ export default function Editor() {
     return style || background || overlay || prompt
   }, [query])
 
-  const applyStyle = () => {
+  const applyStyle = async () => {
     const style = query.get('style') || undefined
     const backgroundQuery = query.get('background') || undefined
     const overlay = query.get('overlay') || undefined
     const prompt = query.get('prompt') || undefined
-    const { effect, background } = buildImageObject({
+    const { effect, background } = await buildImageObject({
       effect: style,
       background: backgroundQuery,
       overlay,
@@ -38,20 +39,22 @@ export default function Editor() {
   }
 
   return (
-    <div className="flex h-dvh">
-      <Canvas />
+    <TooltipProvider>
+      <div className="flex h-dvh">
+        <Canvas />
 
-      <div className="w-2/5 py-12 px-8 flex flex-col bg-white">
-        <Presets />
-        <Prompt />
-        <Button
-          disabled={!isActiveStyle}
-          className="mt-4 main-gradient"
-          onClick={applyStyle}
-        >
-          Apply Style
-        </Button>
+        <div className="w-2/5 py-12 px-8 flex flex-col bg-white">
+          <Presets />
+          <Prompt />
+          <Button
+            disabled={!isActiveStyle}
+            className="mt-4 main-gradient"
+            onClick={applyStyle}
+          >
+            Apply Style
+          </Button>
+        </div>
       </div>
-    </div>
+    </TooltipProvider>
   )
 }

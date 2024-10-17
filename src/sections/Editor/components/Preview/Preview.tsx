@@ -9,7 +9,12 @@ export type PreviewProps = {
   onUrlChange?: (url: string) => void
 }
 
-export default function Preview({ image, effect, onUrlChange }: PreviewProps) {
+export default function Preview({
+  image,
+  effect,
+  background,
+  onUrlChange,
+}: PreviewProps) {
   const [imageBase, setImageBase] = useState('')
 
   useEffect(() => {
@@ -29,7 +34,7 @@ export default function Preview({ image, effect, onUrlChange }: PreviewProps) {
         }}
       />
 
-      <div className="flex absolute z-10 bottom-0 justify-center right-0 left-0">
+      <div className="flex absolute z-10 bottom-0 justify-center right-0 left-0 top-0">
         {imageBase && (
           <InteractiveImage
             src={imageBase}
@@ -37,7 +42,9 @@ export default function Preview({ image, effect, onUrlChange }: PreviewProps) {
             height={800}
             alt="Transformed Image"
             effect={effect}
+            bgEffect={background}
             onUrlChange={onUrlChange}
+            objectFit="contain"
           />
         )}
       </div>

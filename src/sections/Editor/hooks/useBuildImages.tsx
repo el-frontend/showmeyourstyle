@@ -1,5 +1,7 @@
+import { extractEffectAndBackgroundCloudinary } from '@/lib/server/cloudinary/generative'
+
 const useBuildImages = () => {
-  const buildImageObject = (data: {
+  const buildImageObject = async (data: {
     effect?: string
     background?: string
     overlay?: string
@@ -9,7 +11,11 @@ const useBuildImages = () => {
     const result: Record<string, string> = {}
 
     if (prompt) {
-      result.effect = `gen_replace:from_apparel;to_apparel%20with%20${prompt.replace(' ', '%20')};preserve-geometry_true`
+      const { effect, background } =
+        await extractEffectAndBackgroundCloudinary(prompt)
+        console.log(effect, background)
+      result.effect = effect
+      result.background = background
       return result
     }
 

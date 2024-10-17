@@ -136,7 +136,7 @@ export const defaultStyles: Presets[] = [
     },
     {
       id: 'samurai',
-      prompt: 'gen_replace:from_outfits;to_samurai%20armor;preserve-geometry_true',
+      prompt: 'gen_replace:from_outfit;to_samurai%20armor;preserve-geometry_true',
       urlBase: 'https://res.cloudinary.com/dr0ujyp54/image/upload/sys-model-hd.png',
       urlTransformation: 'https://res.cloudinary.com/dr0ujyp54/image/upload/e_gen_replace:from_outfits;to_samurai%20armor;preserve-geometry_true/sys-model-hd.png',
       description: 'Samurai armor style'

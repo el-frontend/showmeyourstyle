@@ -8,7 +8,12 @@ const useCreateQueryString = () => {
   const addSearchParams = (queries: { name: string; value: string }[]) => {
     const params = new URLSearchParams(searchParams)
     queries.forEach(query => {
-      params.set(query.name, query.value)
+      if (query.value === '') {
+        params.delete(query.name)
+        return
+      } else {
+        params.set(query.name, query.value)
+      }
     })
     return params.toString()
   }

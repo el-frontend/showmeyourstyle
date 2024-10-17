@@ -2,7 +2,8 @@
 import { Textarea } from '@/components/ui/textarea'
 import useCreateQueryString from '@/hooks/useCreateQueryString'
 import useDebounce from '@/hooks/useDebounce'
-import React, { useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import React, { useEffect, useState } from 'react'
 import Divider from './Divider'
 
 export type PropmtProps = {
@@ -11,10 +12,19 @@ export type PropmtProps = {
 
 export default function Prompt({ onSubmit }: PropmtProps) {
   const [value, setValue] = useState('')
+  const query = useSearchParams()
+
   const { createQueryAndNavigate } = useCreateQueryString()
   const debouncedSearch = useDebounce(val => {
     createQueryAndNavigate([{ name: 'prompt', value: val }])
   }, 500)
+
+  useEffect(() => {
+    const prompt = query.get('prompt')
+    if (prompt) {
+      setValue(prompt)
+    }
+  }, [query])
 
   const handleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setValue(event.target.value)

@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Download } from 'lucide-react'
 import { useState } from 'react'
 import { useEditorStore } from '../../store/editor'
+import PreviewSelectedStyles from './PreviewSelectedStyles'
 
 const PreviewActions = () => {
   const [isDownloading, setIsDownloading] = useState(false)
@@ -28,18 +29,23 @@ const PreviewActions = () => {
   }
 
   return (
-    <div className="light z-50 absolute bottom-0 right-0 w-full px-8 py-4 flex justify-end gap-4 items-center">
-      <ShareButton data={transformedUrl} />
+    <div className="light z-50 absolute bottom-0 right-0 w-full px-8 py-4 flex  justify-between gap-4 items-center">
+      <div className="flex-1">
+        <PreviewSelectedStyles />
+      </div>
+      <div className="flex-1 text-right">
+        <ShareButton data={transformedUrl} />
 
-      <Button
-        variant={'outline'}
-        className="border-white"
-        onClick={downloadImage}
-        disabled={isDownloading}
-      >
-        {isDownloading ? 'Downloading...' : 'Download'}
-        <Download className="ml-2 w-5 h-auto" />
-      </Button>
+        <Button
+          variant={'outline'}
+          className="border-white"
+          onClick={downloadImage}
+          disabled={isDownloading}
+        >
+          {isDownloading ? 'Downloading...' : 'Download'}
+          <Download className="ml-2 w-5 h-auto" />
+        </Button>
+      </div>
     </div>
   )
 }
