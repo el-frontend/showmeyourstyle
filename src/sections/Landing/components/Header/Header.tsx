@@ -18,7 +18,8 @@ const Header = () => {
             height={50}
           />
         </div>
-        <nav className='hidden md:block'>
+        <nav className='hidden md:flex flex-auto justify-center items-center
+        '>
           <ul className="flex space-x-6 text-base font-medium text-gray-600 ">
             <li>
               <a href="#hero" className="hover:text-background">
@@ -37,6 +38,7 @@ const Header = () => {
             </li>
           </ul>
         </nav>
+        <div className='flex-0'>
         <SignedOut>
           <SignInButton>
             <Button className="rounded-full" variant="outline">
@@ -55,6 +57,7 @@ const Header = () => {
             <UserButton />
           </div>
         </SignedIn>
+        </div>
       </div>
     </header>
   )

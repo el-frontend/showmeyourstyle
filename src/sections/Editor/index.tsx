@@ -1,7 +1,7 @@
-import Canvas from './Canvas'
-import Divider from './Divider'
-import Presets from './Presets'
-import Prompt from './Prompt'
+import Canvas from './components/Canvas'
+import Divider from './components/Divider'
+import Presets from './components/Presets'
+import Prompt from './components/Prompt'
 
 export default function Editor() {
   return (

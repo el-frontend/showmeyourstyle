@@ -7,13 +7,16 @@ body {
   scroll-behavior: smooth;
 }
 
-html{
+html {
   scroll-behavior: smooth;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+  .main-gradient {
+    background: linear-gradient(90.26deg, #753a88 0.22%, #cc2b5e 96.8%);
   }
 }
 

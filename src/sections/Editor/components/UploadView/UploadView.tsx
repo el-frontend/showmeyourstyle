@@ -1,15 +1,24 @@
+'use client'
+
+import useCreateQueryString from '@/hooks/useCreateQueryString'
 import { Image as ImageIcon, Upload } from 'lucide-react'
-import { useCallback, useState } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
+import { defaultImages } from './defaultImages'
 
 export default function ImprovedImageUploader() {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null)
+  const query = useSearchParams()
+  const selectedImage = query.get('image')
+  const { createQueryAndNavigate } = useCreateQueryString()
 
   const onDrop = useCallback((acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
     const reader = new FileReader()
     reader.onload = event => {
-      setSelectedImage(event.target?.result as string)
+      createQueryAndNavigate([
+        { value: event.target?.result as string, name: 'image' },
+      ])
     }
     reader.readAsDataURL(file)
   }, [])
@@ -17,16 +26,17 @@ export default function ImprovedImageUploader() {
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: { 'image/*': [] },
+    multiple: false,
   })
 
   const handleExampleClick = (imageUrl: string) => {
-    setSelectedImage(imageUrl)
+    createQueryAndNavigate([{ value: imageUrl, name: 'image' }])
   }
 
   return (
     <div className="min-h-screen bg-gray-900 flex items-center justify-center text-white p-4">
       <div className="w-full max-w-md space-y-6">
-        <h1 className="text-2xl font-bold text-center">
+        <h1 className="text-lg md:text-3xl font-bold text-center">
           Upload an image to apply the styles
         </h1>
 
@@ -73,17 +83,12 @@ export default function ImprovedImageUploader() {
             />
           </div>
         )}
-        <div className="mt-6">
-          <p className="text-sm text-gray-400 mb-3">
+        <div className="mt-24 text-center">
+          <p className="text-sm md:text-xl md:font-medium text-white mb-3">
             No image? Try one of these:
           </p>
-          <div className="flex justify-between">
-            {[
-              '/images/sys-model-base.webp',
-              '/images/sys-model-base-2.webp',
-              '/images/sys-model-base.webp',
-              '/images/sys-model-base-2.webp',
-            ].map((src, index) => (
+          <div className="flex justify-center items-center gap-4 w-full">
+            {defaultImages.map((src, index) => (
               <div
                 key={index}
                 className="relative group cursor-pointer"
@@ -92,7 +97,7 @@ export default function ImprovedImageUploader() {
                 <img
                   src={src}
                   alt={`Example ${index + 1}`}
-                  className="w-14 h-14 rounded-full transition-transform transform group-hover:scale-105"
+                  className="w-20 h-20 rounded-sm transition-transform transform group-hover:scale-105"
                 />
                 <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-full opacity-0 group-hover:opacity-100 transition-opacity">
                   <ImageIcon className="w-6 h-6 text-white" />
