@@ -2,17 +2,47 @@ import Compare, { CompareItem } from '@/components/ui/compare'
 
 export default function Showcase() {
   const base: CompareItem = {
-    src: '/images/sys-model-base.webp',
+    src: 'https://res.cloudinary.com/dr0ujyp54/image/upload/sys-model-hd.png',
     alt: 'base',
   }
 
   const couples = [
-    { src: '/images/sys-model-base (1).webp', alt: 'transformation 1' },
-    { src: '/images/sys-model-base (1).webp', alt: 'transformation 1' },
-    { src: '/images/sys-model-base (1).webp', alt: 'transformation 1' },
-    { src: '/images/sys-model-base (1).webp', alt: 'transformation 1' },
-    { src: '/images/sys-model-base (1).webp', alt: 'transformation 1' },
-    { src: '/images/sys-model-base (1).webp', alt: 'transformation 1' },
+    {
+      src: 'https://res.cloudinary.com/dr0ujyp54/image/upload/e_gen_replace:from_outfit;to_futuristic%20outfit;preserve-geometry_true/sys-model-hd.png',
+      alt: 'Futuristic Outfit',
+    },
+    {
+      src: 'https://res.cloudinary.com/dr0ujyp54/image/upload/e_gen_replace:from_outfit;to_gothic%20attire;preserve-geometry_true/e_gen_background_replace:prompt_fantasy%20landscape/sys-model-hd.png',
+      alt: 'Gothic Attire',
+    },
+    {
+      src: 'https://res.cloudinary.com/dr0ujyp54/image/upload/e_gen_replace:from_outfit;to_casual%20wear;preserve-geometry_true/e_gen_background_replace:prompt_colorful%20shapes/sys-model-hd.png',
+      alt: 'Casual Wear',
+    },
+    {
+      src: 'https://res.cloudinary.com/dr0ujyp54/image/upload/e_gen_replace:from_outfit;to_sporty%20attire;preserve-geometry_true/e_gen_background_replace:prompt_mountains/e_gen_background_replace:prompt_soccer%20field/sys-model-hd.png',
+      alt: 'Sporty Attire',
+    },
+    {
+      src: 'https://res.cloudinary.com/dr0ujyp54/image/upload/e_gen_replace:from_outfit;to_business%20attire;preserve-geometry_true/e_gen_background_replace:prompt_city/sys-model-hd.png',
+      alt: 'Business Attire',
+    },
+    {
+      src: 'https://res.cloudinary.com/dr0ujyp54/image/upload/e_gen_replace:from_outfit;to_punk%20style;preserve-geometry_true/sys-model-hd.png',
+      alt: 'Punk Style',
+    },
+    {
+      src: 'https://res.cloudinary.com/dr0ujyp54/image/upload/e_gen_replace:from_outfit;to_bohemian%20outfit;preserve-geometry_true/sys-model-hd.png',
+      alt: 'Bohemian Outfit',
+    },
+    {
+      src: 'https://res.cloudinary.com/dr0ujyp54/image/upload/e_gen_replace:from_outfit;to_hippie%20attire;preserve-geometry_true/e_gen_background_replace:prompt_hell/sys-model-hd.png',
+      alt: 'Hippie Attire',
+    },
+    {
+      src: 'https://res.cloudinary.com/dr0ujyp54/image/upload/e_gen_replace:from_outfit;to_steampunk%20attire;preserve-geometry_true/e_gen_background_replace:prompt_steampunk%20overhaul/sys-model-hd.png',
+      alt: 'Steampunk Attire',
+    },
   ].map((couple, index) => ({ id: index, itemOne: base, itemTwo: couple }))
 
   return (
