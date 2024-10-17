@@ -7,7 +7,9 @@ import { motion } from 'framer-motion'
 import { PlusCircle, ZoomIn } from 'lucide-react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 import DashboardEmptyImagePlaceholder from '../EmptyImagePlaceholder/EmptyImagePlaceholder'
+import ImageDialog from '../Gallery/ImageDialog'
 
 type Props = {
   data: Transformations[]
@@ -15,12 +17,32 @@ type Props = {
 
 const DashboardTransformations: React.FC<Props> = ({ data }) => {
   const { createQueryAndNavigate } = useCreateQueryString()
+  const [activeImage, setActiveImage] = useState<Transformations | null>(null)
+  const [openImage, setOpenImage] = useState<boolean>(false)
   const goToUploadFile = () => {
     createQueryAndNavigate([
       { name: 'tab', value: 'uploads' },
       { name: 'upload', value: 'true' },
     ])
   }
+
+  const onShowImage = (
+    image: Transformations,
+    isTransformed: boolean = false
+  ) => {
+    const newImage = { ...image }
+    if (!isTransformed) {
+      newImage.url = image.baseImageUrl
+    }
+    setActiveImage(newImage)
+    setOpenImage(true)
+  }
+
+  const onCloseImageDialog = () => {
+    setOpenImage(false)
+    setActiveImage(null)
+  }
+
   return (
     <div className="flex flex-col">
       <div className="flex justify-between items-center mb-8">
@@ -53,9 +75,12 @@ const DashboardTransformations: React.FC<Props> = ({ data }) => {
                 <h3 className="text-sm font-medium mb-2 text-foreground">
                   Original
                 </h3>
-                <div className="relative group">
+                <div
+                  className="relative group cursor-pointer"
+                  onClick={() => onShowImage(image)}
+                >
                   <Image
-                    src={image.url}
+                    src={image.baseImageUrl}
                     alt={`Original ${image.id}`}
                     width={300}
                     height={300}
@@ -70,7 +95,10 @@ const DashboardTransformations: React.FC<Props> = ({ data }) => {
                 <h3 className="text-sm font-medium mb-2 text-foreground">
                   Transformed
                 </h3>
-                <div className="relative group">
+                <div
+                  className="relative group cursor-pointer"
+                  onClick={() => onShowImage(image, true)}
+                >
                   <Image
                     src={image.url}
                     alt={`Transformed ${image.id}`}
@@ -87,6 +115,15 @@ const DashboardTransformations: React.FC<Props> = ({ data }) => {
           </motion.div>
         ))}
       </motion.div>
+      {activeImage && (
+        <ImageDialog
+          open={openImage}
+          onClose={onCloseImageDialog}
+          image={activeImage.url}
+          imageId={activeImage.publicId}
+          hideTransformation={activeImage.url.includes('e_gen')}
+        />
+      )}
       {data.length === 0 && (
         <DashboardEmptyImagePlaceholder onClick={goToUploadFile} />
       )}
