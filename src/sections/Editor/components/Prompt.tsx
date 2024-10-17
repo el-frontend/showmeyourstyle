@@ -35,7 +35,7 @@ export default function Prompt() {
         <Textarea
           value={value}
           onChange={handleChange}
-          placeholder="Write your own style..."
+          placeholder="Write your own style… Ex: clothing of a gnome in a forest. Try to write in English 😉"
           rows={4}
           className="w-full resize-none overflow-hidden bg-white text-primary placeholder:text-muted-foreground focus:outline-none py-3 px-4 pr-12 rounded-lg border border-input"
         />
