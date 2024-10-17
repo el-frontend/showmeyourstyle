@@ -36,7 +36,7 @@ export default function TransformPreview({
       <Image
         src={base}
         alt="Bottom Image"
-        layout="fill"
+        fill
         style={{ objectFit: 'cover' }}
         className="rounded-xl"
       />
@@ -44,7 +44,7 @@ export default function TransformPreview({
       <Image
         src={transformed}
         alt="Top Image"
-        layout="fill"
+        fill
         className={`rounded-xl transition-opacity duration-1000 ease-in-out`}
         style={{ opacity: topImageOpacity, objectFit: 'cover' }}
       />

@@ -60,6 +60,7 @@ export default function CloudinaryUploadImage({
       ),
     ])
   }
+  
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,

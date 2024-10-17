@@ -2,9 +2,16 @@
 import { UploadApiResponse } from 'cloudinary'
 import cloudinary from './client'
 
-export const uploadImage = async (file: string): Promise<UploadApiResponse> => {
+export const uploadImage = async (
+  file: string,
+  options?: { removeBackground: boolean }
+): Promise<UploadApiResponse> => {
   try {
-    const response = await cloudinary.uploader.upload(file)
+    const uploadOptions: any = {}
+    if (options?.removeBackground) {
+        uploadOptions.background_removal = 'cloudinary_ai'
+    }
+    const response = await cloudinary.uploader.upload(file, uploadOptions)
     return response
   } catch (e) {
     console.error(e)

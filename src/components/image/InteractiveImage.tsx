@@ -9,7 +9,7 @@ type Props = {
   width: number
   height: number
   alt: string
-  effect: string
+  effect?: string
   bgEffect?: string
 }
 

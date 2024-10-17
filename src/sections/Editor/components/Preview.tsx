@@ -1,10 +1,22 @@
-import Image from 'next/image'
+import InteractiveImage from '@/components/image/InteractiveImage'
+import { useEffect, useState } from 'react'
 
 export type PreviewProps = {
   image: string
+  effect?: string
+  background?: string
+  overlay?: string
 }
 
-export default function Preview({ image }: PreviewProps) {
+export default function Preview({ image, effect }: PreviewProps) {
+  const [imageBase, setImageBase] = useState('')
+
+  useEffect(() => {
+    const split = image.split('/')
+    const base = split.pop()?.split('.')[0] ?? image
+    setImageBase(base)
+  }, [image])
+
   return (
     <>
       <div
@@ -17,7 +29,15 @@ export default function Preview({ image }: PreviewProps) {
       />
 
       <div className="flex absolute z-10 bottom-0 w-full justify-center">
-        <Image src={image} alt="provided image" width="800" height="800" />
+        {imageBase && (
+          <InteractiveImage
+            src={imageBase}
+            width={800}
+            height={800}
+            alt="Transformed Image"
+            effect={effect}
+          />
+        )}
       </div>
     </>
   )

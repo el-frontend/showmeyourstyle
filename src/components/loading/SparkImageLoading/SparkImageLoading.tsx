@@ -45,7 +45,7 @@ const SparkleImage: React.FC<Props> = ({ children, loading }) => {
   }, []);
 
   return (
-    <div className="relative w-full mx-auto transition-all duration-100">
+    <div className="relative w-full mx-auto transition-all duration-100 flex items-center justify-center">
       {children}
       {loading && (
         <>

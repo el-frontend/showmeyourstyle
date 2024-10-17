@@ -1,6 +1,8 @@
 'use client'
 
 import useCreateQueryString from '@/hooks/useCreateQueryString'
+import { uploadImage } from '@/lib/server/cloudinary/upload'
+import { convertFileToBase64 } from '@/lib/server/utils/file'
 import { Image as ImageIcon, Upload } from 'lucide-react'
 import { useSearchParams } from 'next/navigation'
 import { useCallback } from 'react'
@@ -12,15 +14,11 @@ export default function ImprovedImageUploader() {
   const selectedImage = query.get('image')
   const { createQueryAndNavigate } = useCreateQueryString()
 
-  const onDrop = useCallback((acceptedFiles: File[]) => {
+  const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
-    const reader = new FileReader()
-    reader.onload = event => {
-      createQueryAndNavigate([
-        { value: event.target?.result as string, name: 'image' },
-      ])
-    }
-    reader.readAsDataURL(file)
+    const file64 = await convertFileToBase64(file)
+    const uploadedFile = await uploadImage(file64)
+    createQueryAndNavigate([{ value: uploadedFile.secure_url, name: 'image' }])
   }, [])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
