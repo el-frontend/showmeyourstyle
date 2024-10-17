@@ -6,17 +6,14 @@ import { useSearchParams } from 'next/navigation'
 import React, { useEffect, useState } from 'react'
 import Divider from './Divider'
 
-export type PropmtProps = {
-  onSubmit?: (data: string) => void
-}
 
-export default function Prompt({ onSubmit }: PropmtProps) {
+export default function Prompt() {
   const [value, setValue] = useState('')
   const query = useSearchParams()
 
   const { createQueryAndNavigate } = useCreateQueryString()
   const debouncedSearch = useDebounce(val => {
-    createQueryAndNavigate([{ name: 'prompt', value: val }])
+    createQueryAndNavigate([{ name: 'prompt', value: val as string }])
   }, 500)
 
   useEffect(() => {

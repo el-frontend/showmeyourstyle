@@ -1,5 +1,3 @@
-const faceShareApi = 'https://www.facebook.com/sharer/sharer.php?u='
-
 const FacebookShare = ({ data }: { data: string }) => {
   return (
     <a

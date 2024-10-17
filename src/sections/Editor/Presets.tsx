@@ -2,12 +2,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import StylesPreset from './components/Presets/StylesPreset'
 
 export default function Presets() {
-  const base = '/images/sys-model-base.webp'
-  const effects = Array.from({ length: 9 }, (_, idx) => ({
-    id: idx,
-    label: 'Vampire',
-    image: '/images/sys-model-base (1).webp',
-  }))
 
   return (
     <>

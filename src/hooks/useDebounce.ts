@@ -1,10 +1,10 @@
 import { useCallback, useEffect, useRef } from 'react'
 
-const useDebounce = (func: (...args: any[]) => void, wait: number) => {
+const useDebounce = (func: (...args: unknown[]) => void, wait: number) => {
   const timeoutRef = useRef<NodeJS.Timeout | null>(null)
 
   const debouncedFunction = useCallback(
-    (...args: any[]) => {
+    (...args: unknown[]) => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current)
       }

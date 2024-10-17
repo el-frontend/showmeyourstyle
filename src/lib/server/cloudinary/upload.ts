@@ -7,7 +7,7 @@ export const uploadImage = async (
   options?: { removeBackground: boolean }
 ): Promise<UploadApiResponse> => {
   try {
-    const uploadOptions: any = {}
+    const uploadOptions: Record<string, string> = {}
     if (options?.removeBackground) {
         uploadOptions.background_removal = 'cloudinary_ai'
     }
