@@ -19,10 +19,11 @@ const useCreateQueryString = () => {
   }
 
   const createQueryAndNavigate = (
-    queries: { name: string; value: string }[]
+    queries: { name: string; value: string }[],
+    options?: { scroll?: boolean }
   ) => {
     const newSearchParams = addSearchParams(queries)
-    replace(`${pathname}?${newSearchParams}`)
+    replace(`${pathname}?${newSearchParams}`, options)
   }
 
   return { addSearchParams, createQueryAndNavigate }

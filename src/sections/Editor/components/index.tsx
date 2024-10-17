@@ -37,15 +37,20 @@ export default function Editor() {
     })
     setBackground(background)
     setEffect(effect)
+
+    // scroll to canvas with id canvas
+    const canvas = document.getElementById('canvas')
+    if (canvas) {
+      canvas.scrollIntoView({ behavior: 'smooth' })
+    }
   }
 
   return (
     <TooltipProvider>
-      <div className="flex h-dvh">
+      <div className="flex h-dvh flex-col lg:flex-row w-screen">
         <Canvas />
-
-        <div className="w-2/5 pb-12 pt-6 px-8 flex flex-col bg-white">
-          <div className="w-full flex justify-end pb-6">
+        <div className="w-full lg:w-2/5 h-auto flex-1 lg:h-full pb-12 pt-6 px-8 flex flex-col bg-white">
+          <div className="w-full flex justify-center lg:justify-end pb-6">
             <SignInUserButton />
           </div>
           <Presets />

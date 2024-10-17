@@ -1,48 +1,48 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import React, { useEffect, useState } from "react";
-import GeneratingLoading from "./GeneratingLoading";
+import { motion } from 'framer-motion'
+import React, { useEffect, useState } from 'react'
+import GeneratingLoading from './GeneratingLoading'
 
 interface Sparkle {
-  id: number;
-  size: number;
-  duration: number;
-  delay: number;
-  style: React.CSSProperties;
+  id: number
+  size: number
+  duration: number
+  delay: number
+  style: React.CSSProperties
 }
 
 const generateSparkle = (): Sparkle => ({
   id: Math.random(),
-  size: Math.random() * 20 + 5, // Increased size for visibility
+  size: Math.random() * 15 + 5, // Increased size for visibility
   duration: Math.random() * 2 + 1,
   delay: Math.random() * 2,
   style: {
-    top: `${Math.random() * 100}%`,
-    left: `${Math.random() * 100}%`,
-    zIndex: 2,
+    top: `${Math.random() * 80}%`,
+    left: `${Math.random() * 80}%`,
+    zIndex: 10,
   },
-});
+})
 
 type Props = {
-  children: React.ReactNode;
-  loading: boolean;
-};
+  children: React.ReactNode
+  loading: boolean
+}
 
 const SparkleImage: React.FC<Props> = ({ children, loading }) => {
-  const [sparkles, setSparkles] = useState<Sparkle[]>([]);
+  const [sparkles, setSparkles] = useState<Sparkle[]>([])
 
   useEffect(() => {
     // Generate initial set of sparkles
-    setSparkles(Array.from({ length: 20 }, generateSparkle));
+    setSparkles(Array.from({ length: 20 }, generateSparkle))
 
     // Periodically add new sparkles
     const interval = setInterval(() => {
-      setSparkles((prevSparkles) => [...prevSparkles, generateSparkle()]);
-    }, 500);
+      setSparkles(prevSparkles => [...prevSparkles, generateSparkle()])
+    }, 500)
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className="relative w-full mx-auto transition-all duration-100 flex items-center justify-center">
@@ -50,7 +50,7 @@ const SparkleImage: React.FC<Props> = ({ children, loading }) => {
       {loading && (
         <>
           <GeneratingLoading />
-          {sparkles.map((sparkle) => (
+          {sparkles.map(sparkle => (
             <motion.svg
               key={sparkle.id}
               width={sparkle.size}
@@ -70,7 +70,7 @@ const SparkleImage: React.FC<Props> = ({ children, loading }) => {
                 duration: sparkle.duration,
                 repeat: Infinity,
                 delay: sparkle.delay,
-                ease: "easeInOut",
+                ease: 'easeInOut',
               }}
             >
               <path
@@ -82,7 +82,7 @@ const SparkleImage: React.FC<Props> = ({ children, loading }) => {
         </>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default SparkleImage;
+export default SparkleImage

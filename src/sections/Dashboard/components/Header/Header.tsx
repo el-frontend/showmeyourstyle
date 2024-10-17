@@ -22,6 +22,12 @@ const DashboardHeader = () => {
         >
           Dashboard
         </Link>
+        <Link
+          href="/editor"
+          className="text-foreground transition-colors hover:text-foreground"
+        >
+          ✨Editor✨
+        </Link>
       </nav>
       <Sheet>
         <SheetTrigger asChild>
@@ -41,6 +47,9 @@ const DashboardHeader = () => {
             </Link>
             <Link href="/dashboard" className="hover:text-foreground">
               Dashboard
+            </Link>
+            <Link href="/editor" className="hover:text-foreground">
+            ✨Editor✨
             </Link>
           </nav>
         </SheetContent>

@@ -13,7 +13,7 @@ export default function Prompt() {
 
   const { createQueryAndNavigate } = useCreateQueryString()
   const debouncedSearch = useDebounce(val => {
-    createQueryAndNavigate([{ name: 'prompt', value: val as string }])
+    createQueryAndNavigate([{ name: 'prompt', value: val as string }], { scroll: false })
   }, 500)
 
   useEffect(() => {

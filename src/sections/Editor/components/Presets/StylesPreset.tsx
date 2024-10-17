@@ -11,7 +11,7 @@ export default function StylesPreset() {
   const style = searchParams.get('style')
 
   const onSelect = (id: string) => {
-    createQueryAndNavigate([{ name: 'style', value: id }])
+    createQueryAndNavigate([{ name: 'style', value: id }], { scroll: false })
   }
   return (
     <div className="h-[calc(100vh/2)] grid grid-cols-3 gap-4 overflow-y-scroll">

@@ -24,7 +24,7 @@ const UploadButton = () => {
       console.log(uploadedFile)
       createQueryAndNavigate([
         { value: uploadedFile.secure_url, name: 'image' },
-      ])
+      ], { scroll: false })
       setIsUploading(false)
     } catch (e) {
       setIsUploading(false)

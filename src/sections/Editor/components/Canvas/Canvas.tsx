@@ -12,7 +12,7 @@ export default function Canvas() {
   const { effect, background, setTransformedUrl } = useEditorStore()
 
   return (
-    <div className="flex-grow h-full relative">
+    <div className="min-h-[90vh] lg:min-h-max lg:h-full relative w-full lg:w-3/5" id="canvas">
       <CanvasHeader />
       {image ? (
         <Preview

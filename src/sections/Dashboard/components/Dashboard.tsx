@@ -19,7 +19,7 @@ export function Dashboard({ gallery, transformations }: Props) {
   const tab = query.get('tab')
 
   const activateTab = (tab: string) => {
-    createQueryAndNavigate([{ name: 'tab', value: tab }])
+    createQueryAndNavigate([{ name: 'tab', value: tab }], { scroll: false })
   }
 
   return (

@@ -11,7 +11,7 @@ export default function BackgroundPreset() {
   const background = searchParams.get('background')
 
   const onSelect = (id: string) => {
-    createQueryAndNavigate([{ name: 'background', value: id }])
+    createQueryAndNavigate([{ name: 'background', value: id }], { scroll: false })
   }
   return (
     <div className="h-[calc(100vh/2)] grid grid-cols-3 gap-4 overflow-y-scroll">

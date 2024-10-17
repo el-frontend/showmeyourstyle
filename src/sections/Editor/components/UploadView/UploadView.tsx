@@ -18,7 +18,7 @@ export default function ImprovedImageUploader() {
     const file = acceptedFiles[0]
     const file64 = await convertFileToBase64(file)
     const uploadedFile = await uploadImage(file64)
-    createQueryAndNavigate([{ value: uploadedFile.secure_url, name: 'image' }])
+    createQueryAndNavigate([{ value: uploadedFile.secure_url, name: 'image' }], { scroll: false })
   }, [])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
@@ -28,7 +28,7 @@ export default function ImprovedImageUploader() {
   })
 
   const handleExampleClick = (imageUrl: string) => {
-    createQueryAndNavigate([{ value: imageUrl, name: 'image' }])
+    createQueryAndNavigate([{ value: imageUrl, name: 'image' }], { scroll: false })
   }
 
   return (

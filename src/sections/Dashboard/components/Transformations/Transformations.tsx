@@ -23,7 +23,7 @@ const DashboardTransformations: React.FC<Props> = ({ data }) => {
     createQueryAndNavigate([
       { name: 'tab', value: 'uploads' },
       { name: 'upload', value: 'true' },
-    ])
+    ], { scroll: false })
   }
 
   const onShowImage = (

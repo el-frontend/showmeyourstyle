@@ -34,7 +34,7 @@ const PreviewActions = () => {
   }
 
   return (
-    <div className="light z-50 absolute bottom-0 right-0 w-full px-8 py-4 flex  justify-between gap-4 items-center">
+    <div className="light z-50 absolute bottom-0 right-0 w-full px-8 py-4 flex  justify-between gap-4 items-center flex-col lg:flex-row">
       <div className="flex-1">
         <PreviewSelectedStyles />
       </div>
@@ -48,8 +48,10 @@ const PreviewActions = () => {
           onClick={downloadImage}
           disabled={isDownloading}
         >
-          {isDownloading ? 'Downloading...' : 'Download'}
-          <Download className="ml-2 w-5 h-auto" />
+          <span className="hidden lg:block">
+            {isDownloading ? 'Downloading...' : 'Download'}
+          </span>
+          <Download className="ml-0 lg:ml-2 w-5 h-auto" />
         </Button>
       </div>
     </div>
