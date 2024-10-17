@@ -40,19 +40,23 @@ const PreviewActions = () => {
       </div>
       <div className="flex-1 text-right gap-4 flex justify-end">
         {user && transformedUrl && <PreviewSaveTransformation />}
-        <ShareButton data={transformedUrl} />
 
-        <Button
-          variant={'outline'}
-          className="border-white"
-          onClick={downloadImage}
-          disabled={isDownloading}
-        >
-          <span className="hidden lg:block">
-            {isDownloading ? 'Downloading...' : 'Download'}
-          </span>
-          <Download className="ml-0 lg:ml-2 w-5 h-auto" />
-        </Button>
+        {transformedUrl && (
+          <>
+            <ShareButton data={transformedUrl} />
+            <Button
+              variant={'outline'}
+              className="border-white"
+              onClick={downloadImage}
+              disabled={isDownloading}
+            >
+              <span className="hidden lg:block">
+                {isDownloading ? 'Downloading...' : 'Download'}
+              </span>
+              <Download className="ml-0 lg:ml-2 w-5 h-auto" />
+            </Button>
+          </>
+        )}
       </div>
     </div>
   )
