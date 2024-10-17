@@ -1,10 +1,7 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { SignedIn, UserButton } from '@clerk/clerk-react'
-import { SignedOut, SignInButton } from '@clerk/nextjs'
+import SignInUserButton from '@/sections/components/SignInUserButton'
 import Image from 'next/image'
-import Link from 'next/link'
 
 const Header = () => {
   return (
@@ -18,8 +15,10 @@ const Header = () => {
             height={50}
           />
         </div>
-        <nav className='hidden md:flex flex-auto justify-center items-center
-        '>
+        <nav
+          className="hidden md:flex flex-auto justify-center items-center
+        "
+        >
           <ul className="flex space-x-6 text-base font-medium text-gray-600 ">
             <li>
               <a href="#hero" className="hover:text-background">
@@ -38,25 +37,8 @@ const Header = () => {
             </li>
           </ul>
         </nav>
-        <div className='flex-0'>
-        <SignedOut>
-          <SignInButton>
-            <Button className="rounded-full" variant="outline">
-              Sign In
-            </Button>
-          </SignInButton>
-        </SignedOut>
-        <SignedIn>
-          <div className="flex gap-4">
-            <Link
-              href="/dashboard"
-              className="rounded-full text-background px-4 py-2  border-background border  hover:shadow-md"
-            >
-              Dashboard
-            </Link>
-            <UserButton />
-          </div>
-        </SignedIn>
+        <div className="flex-0">
+          <SignInUserButton />
         </div>
       </div>
     </header>

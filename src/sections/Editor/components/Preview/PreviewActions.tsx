@@ -1,13 +1,18 @@
+'use client'
+
 import { ShareButton } from '@/components/share/ShareButton'
 import { Button } from '@/components/ui/button'
+import { useUser } from '@clerk/nextjs'
 import { Download } from 'lucide-react'
 import { useState } from 'react'
 import { useEditorStore } from '../../store/editor'
+import PreviewSaveTransformation from './PreviewSaveTransformation'
 import PreviewSelectedStyles from './PreviewSelectedStyles'
 
 const PreviewActions = () => {
   const [isDownloading, setIsDownloading] = useState(false)
   const { transformedUrl } = useEditorStore()
+  const { user } = useUser()
 
   const downloadImage = async () => {
     if (!transformedUrl) return
@@ -33,7 +38,8 @@ const PreviewActions = () => {
       <div className="flex-1">
         <PreviewSelectedStyles />
       </div>
-      <div className="flex-1 text-right">
+      <div className="flex-1 text-right gap-4 flex justify-end">
+        {user && transformedUrl && <PreviewSaveTransformation />}
         <ShareButton data={transformedUrl} />
 
         <Button

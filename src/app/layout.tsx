@@ -1,3 +1,4 @@
+import { Toaster } from '@/components/ui/sonner'
 import { ClerkProvider } from '@clerk/nextjs'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
@@ -20,6 +21,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${montserrat.className} antialiased dark`}>
           {children}
+          <Toaster />
         </body>
       </html>
     </ClerkProvider>

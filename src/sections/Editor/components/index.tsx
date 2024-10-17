@@ -2,6 +2,7 @@
 
 import { Button } from '@/components/ui/button'
 import { TooltipProvider } from '@/components/ui/tooltip'
+import SignInUserButton from '@/sections/components/SignInUserButton'
 import { useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 import useBuildImages from '../hooks/useBuildImages'
@@ -43,7 +44,10 @@ export default function Editor() {
       <div className="flex h-dvh">
         <Canvas />
 
-        <div className="w-2/5 py-12 px-8 flex flex-col bg-white">
+        <div className="w-2/5 pb-12 pt-6 px-8 flex flex-col bg-white">
+          <div className="w-full flex justify-end pb-6">
+            <SignInUserButton />
+          </div>
           <Presets />
           <Prompt />
           <Button
