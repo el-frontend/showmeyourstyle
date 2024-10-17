@@ -6,11 +6,12 @@ import SparkleImage from '../loading/SparkImageLoading/SparkImageLoading'
 
 type Props = {
   src: string
-  width: number
-  height: number
+  width?: number
+  height?: number
   alt: string
   effect?: string
   bgEffect?: string
+  onUrlChange?: (url: string) => void
 }
 
 const InteractiveImage: React.FC<Props> = ({
@@ -20,6 +21,7 @@ const InteractiveImage: React.FC<Props> = ({
   alt,
   effect,
   bgEffect,
+  onUrlChange,
 }) => {
   const [url, setUrl] = useState<string>('')
   const [retry, setRetry] = useState<number>(0)
@@ -33,6 +35,7 @@ const InteractiveImage: React.FC<Props> = ({
       const response = await fetch(url)
       console.log(response)
       setUrl(url)
+      onUrlChange?.(url)
       setTimeout(() => setLoading(false), 1000)
       setRetry(0)
     } catch (e) {
@@ -51,7 +54,7 @@ const InteractiveImage: React.FC<Props> = ({
 
   return (
     <SparkleImage loading={loading}>
-      <Image src={url} width={width} height={height} alt={alt} />
+      <Image src={url} {...(!width || !height ? { fill: true } : { width, height })} alt={alt} />
     </SparkleImage>
   )
 }

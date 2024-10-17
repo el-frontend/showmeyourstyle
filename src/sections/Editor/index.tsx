@@ -1,4 +1,4 @@
-import Canvas from './components/Canvas'
+import Canvas from './components/Canvas/Canvas'
 import Divider from './components/Divider'
 import Presets from './components/Presets'
 import Prompt from './components/Prompt'

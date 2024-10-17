@@ -4,8 +4,8 @@ import cloudinary from './client'
 
 type ImageGenConfig = {
   src: string
-  width: number
-  height: number
+  width?: number
+  height?: number
   quality?: number
   effect?: string
   bgEffect?: string
@@ -30,6 +30,5 @@ export const generateImage = async (config: ImageGenConfig) => {
       },
     ],
   })
-  console.log(url)
   return url
 }

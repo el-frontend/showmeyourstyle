@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 import useBuildImages from '../hooks/useBuildImages'
 import { useEditorStore } from '../store/editor'
-import Canvas from './Canvas'
+import Canvas from './Canvas/Canvas'
 import Presets from './Presets'
 import Prompt from './Prompt'
 

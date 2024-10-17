@@ -5,8 +5,14 @@ const useBuildImages = () => {
     overlay?: string
     prompt?: string
   }) => {
-    const { effect, background, overlay, prompt } = data
+    const { effect, background, prompt } = data
     const result: Record<string, string> = {}
+
+    if (prompt) {
+      result.effect = `gen_replace:from_apparel;to_apparel%20with%20${prompt.replace(' ', '%20')};preserve-geometry_true`
+      return result
+    }
+
     if (effect) {
       result.effect = `gen_replace:from_apparel;to_apparel%20with%20${effect.replace(' ', '%20')};preserve-geometry_true`
     }
