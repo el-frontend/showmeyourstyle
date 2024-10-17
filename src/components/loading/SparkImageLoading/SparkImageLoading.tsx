@@ -18,8 +18,8 @@ const generateSparkle = (): Sparkle => ({
   duration: Math.random() * 2 + 1,
   delay: Math.random() * 2,
   style: {
-    top: `${Math.random() * 80}%`,
-    left: `${Math.random() * 80}%`,
+    top: `${Math.random() * 80 + 10}%`, // Ensures sparkles are within the central 80% vertically
+    left: `${Math.random() * 80 + 10}%`, // Ensures sparkles are within the central 80% horizontally
     zIndex: 10,
   },
 })
