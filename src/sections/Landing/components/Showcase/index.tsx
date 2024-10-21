@@ -72,7 +72,11 @@ export default function Showcase() {
 
         <div className="grid grid-cols-[repeat(auto-fit,minmax(250px,1fr))] gap-8 lg:gap-16 place-content-center">
           {couples.map(({ id, ...couple }) => (
-            <Compare key={id} {...couple} />
+            <Compare
+              key={id}
+              {...couple}
+              className="rounded-lg justify-self-center border-2 border-white shadow-2xl shadow-white/30"
+            />
           ))}
         </div>
       </div>

@@ -47,22 +47,32 @@ const useBuildImages = () => {
     layout?: string
   }) => {
     const { effect, background, prompt, layout } = data
-    const result: {effect: Effect | null, background: string, layout: Layout | null} = {
+    const result: {
+      effect: Effect | null
+      background: string
+      layout: Layout | null
+    } = {
       effect: null,
       background: '',
-      layout: null
+      layout: null,
     }
 
     if (prompt) {
       const { effect, background } =
         await extractEffectAndBackgroundCloudinaryPlain(prompt)
-      result.effect = {from: 'outfit', to: effect, preserveGeometry: true}
-      result.background = background
+      if (effect) {
+        result.effect = { from: 'outfit', to: effect, preserveGeometry: true }
+      }
+      result.effect = { from: 'outfit', to: effect, preserveGeometry: true }
+      if (background) {
+        result.background = background
+      }
+
       return result
     }
 
     if (effect) {
-      result.effect = {from: 'outfit', to: effect, preserveGeometry: true}
+      result.effect = { from: 'outfit', to: effect, preserveGeometry: true }
     }
     if (background) {
       const prompt = defaultBackgrounds.find(b => b.id === background)
@@ -71,9 +81,9 @@ const useBuildImages = () => {
       }
     }
 
-    if(layout){
+    if (layout) {
       const layoutData = defaultLayouts.find(l => l.id === layout)
-      if(layoutData){
+      if (layoutData) {
         result.layout = layoutData
       }
     }

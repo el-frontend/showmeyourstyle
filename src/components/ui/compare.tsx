@@ -13,6 +13,7 @@ export type CompareProps = {
   itemTwo: CompareItem
   width?: number | string
   height?: number | string
+  className?: string
 }
 
 export default function Compare({
@@ -20,13 +21,14 @@ export default function Compare({
   itemTwo,
   width = 300,
   height = 300,
+  className
 }: CompareProps) {
   return (
     <ReactCompareSlider
       itemOne={<ReactCompareSliderImage {...itemOne}/>}
       itemTwo={<ReactCompareSliderImage {...itemTwo} />}
       portrait={false}
-      className="rounded-lg shadow-md justify-self-center"
+      className={className}
       style={{ width, height }}
       position={50}
        
