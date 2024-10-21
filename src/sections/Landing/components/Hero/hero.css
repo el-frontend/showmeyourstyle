@@ -1,0 +1,17 @@
+.hero-container {
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('/images/hero_bg.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 0.5; /* Adjust opacity */
+    mix-blend-mode: hard-light;
+    z-index: 0;
+  }
+}

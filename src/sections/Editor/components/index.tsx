@@ -59,7 +59,7 @@ export default function Editor() {
         <Canvas />
         <div className="w-full lg:w-2/5 h-auto flex-1 lg:h-full pb-12 pt-6 px-8 flex flex-col bg-white">
           <div className="w-full flex justify-center lg:justify-end pb-6">
-            <SignInUserButton />
+            <SignInUserButton dark />
           </div>
           <Presets />
           <Prompt />

@@ -5,13 +5,13 @@ import Image from 'next/image'
 
 const Header = () => {
   return (
-    <header className="bg-white">
+    <header className="bg-primary">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex items-center">
           <Image
-            src="/images/logo.svg"
+            src="/images/logo_white.svg"
             alt="SHOWME your style Logo"
-            width={117}
+            width={130}
             height={50}
           />
         </div>
@@ -19,7 +19,7 @@ const Header = () => {
           className="hidden md:flex flex-auto justify-center items-center
         "
         >
-          <ul className="flex space-x-6 text-base font-medium text-gray-600 ">
+          <ul className="flex space-x-6 text-base font-semibold text-white ">
             <li>
               <a href="#hero" className="hover:text-background">
                 Home

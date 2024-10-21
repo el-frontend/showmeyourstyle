@@ -1,6 +1,7 @@
 'use client'
 
 import { motion, useAnimation } from 'framer-motion'
+import { useEffect } from 'react'
 
 type Props = {
   children: React.ReactNode
@@ -12,6 +13,17 @@ const AnimatedItem: React.FC<Props> = ({ children, delay = 0 }) => {
   const randomX = Math.random() * 100 // Random X position (0-100%)
   const randomY = Math.random() * 100 // Random Y position (0-100%)
   const randomDuration = 20 + Math.random() * 40 // Random duration (20-60s)
+
+  useEffect(() => {
+    controls.start({
+      x: randomX,
+      y: randomY,
+      transition: {
+        duration: randomDuration,
+      },
+    })
+  }, [])
+
   const handleMouseEnter = (event: React.MouseEvent<HTMLDivElement>) => {
     // Get the bounding rectangle to determine current position
     const rect = event.currentTarget.getBoundingClientRect()
@@ -44,7 +56,7 @@ const AnimatedItem: React.FC<Props> = ({ children, delay = 0 }) => {
 
   return (
     <motion.div
-      className={`z-${Math.floor(Math.random() * 20)}`}
+      className={`z-[1000]`}
       style={{
         position: 'absolute',
         left: `${randomX}%`,

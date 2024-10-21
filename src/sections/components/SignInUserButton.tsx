@@ -1,8 +1,13 @@
 import { Button } from '@/components/ui/button'
 import { SignedIn, SignedOut, SignInButton, UserButton } from '@clerk/nextjs'
+import clsx from 'clsx'
 import Link from 'next/link'
 
-const SignInUserButton = () => {
+type Props = {
+  dark?: boolean
+}
+
+const SignInUserButton: React.FC<Props> = ({ dark }) => {
   return (
     <>
       <SignedOut>
@@ -16,7 +21,12 @@ const SignInUserButton = () => {
         <div className="flex gap-4">
           <Link
             href="/dashboard"
-            className="rounded-full text-background px-4 py-2  border-background border  hover:shadow-md"
+            className={clsx(
+              `rounded-full px-4 py-2 hover:shadow-md border`,
+              dark
+                ? 'text-primary border-primary hover:bg-black/10'
+                : 'text-white  border-white   hover:shadow-white'
+            )}
           >
             Dashboard
           </Link>

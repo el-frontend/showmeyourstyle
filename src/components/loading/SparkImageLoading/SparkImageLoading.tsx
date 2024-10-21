@@ -34,7 +34,7 @@ const SparkleImage: React.FC<Props> = ({ children, loading }) => {
 
   useEffect(() => {
     // Generate initial set of sparkles
-    setSparkles(Array.from({ length: 20 }, generateSparkle))
+    setSparkles(Array.from({ length: 10 }, generateSparkle))
 
     // Periodically add new sparkles
     const interval = setInterval(() => {

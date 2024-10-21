@@ -41,7 +41,6 @@ export default function LandingLayout({
   return (
     <div className="min-h-screen bg-background relative overflow-x-hidden">
       <Header />
-      {/* <HalloweenTheme /> */}
       {children}
     </div>
   )
