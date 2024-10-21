@@ -22,7 +22,9 @@ const UploadButton = () => {
 
       // check file size not exceed 3mb
       if (file.size > 3 * 1024 * 1024) {
-        toast.warning('File size is too big, please upload a file less than 3mb')
+        toast.warning(
+          'File size is too big, please upload a file less than 3mb'
+        )
         setIsUploading(false)
         return
       }
@@ -30,9 +32,10 @@ const UploadButton = () => {
       const file64 = await convertFileToBase64(file)
       const uploadedFile = await uploadImage(file64)
       console.log(uploadedFile)
-      createQueryAndNavigate([
-        { value: uploadedFile.secure_url, name: 'image' },
-      ], { scroll: false })
+      createQueryAndNavigate(
+        [{ value: uploadedFile.secure_url, name: 'image' }],
+        { scroll: false }
+      )
       setIsUploading(false)
     } catch (e) {
       setIsUploading(false)
@@ -40,7 +43,11 @@ const UploadButton = () => {
     }
   }
   return (
-    <Button className="ligth flex gap-2" variant="ghost" onClick={handleClick}>
+    <Button
+      className="ligth flex gap-2 border-white"
+      variant={'outline'}
+      onClick={handleClick}
+    >
       <input
         type="file"
         ref={refInput}
@@ -48,12 +55,11 @@ const UploadButton = () => {
         onChange={onUpload}
         disabled={isUploading}
         accept="image/*"
-
       />
 
       {!isUploading && (
-        <div className="p-1 rounded-full bg-white">
-          <Plus className="h-5 w-auto  text-background" />
+        <div className="p-1">
+          <Plus className="h-5 w-auto  text-white" />
         </div>
       )}
 

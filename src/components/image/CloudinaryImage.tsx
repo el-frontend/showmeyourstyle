@@ -28,6 +28,7 @@ const CloudinaryImage: React.FC<Props> = ({
   preserveTransformations = false,
 }) => {
   const [loading, setLoading] = useState<boolean>(true)
+  const [hasError, setHasError] = useState<boolean>(false)
 
   useEffect(() => {
     setLoading(true)
@@ -41,20 +42,33 @@ const CloudinaryImage: React.FC<Props> = ({
     setLoading(false)
   }
 
+  const onError = (event: unknown) => {
+    console.log('Error loading image', event)
+    setLoading(false)
+    setHasError(true)
+    setTimeout(() => {
+      setHasError(false)
+      setLoading(true)
+    }, 500)
+  }
+
   return (
     <SparkleImage loading={loading}>
-      <CldImage
-        src={src}
-        width={width}
-        height={height}
-        {...(effect && { replace: effect })}
-        {...(bgEffect && { replaceBackground: bgEffect })}
-        alt={alt}
-        sizes="100vw"
-        style={{ objectFit }}
-        preserveTransformations={preserveTransformations}
-        onLoad={onLoad}
-      />
+      {!hasError && (
+        <CldImage
+          src={src}
+          width={width}
+          height={height}
+          onError={onError}
+          {...(effect && { replace: effect })}
+          {...(bgEffect && { replaceBackground: bgEffect })}
+          alt={alt}
+          sizes="100vw"
+          style={{ objectFit }}
+          preserveTransformations={preserveTransformations}
+          onLoad={onLoad}
+        />
+      )}
     </SparkleImage>
   )
 }

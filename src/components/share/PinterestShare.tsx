@@ -9,7 +9,7 @@ const PinterestShare = ({ data }: { data: string }) => {
         .replace('[URL]', text)
         .replace(
           '[TITLE]',
-          'I just generated this image using showmeyourstyle.com. What do you think?'.replace(
+          'I just generated this image using showmeyourstyle.vercel.app and @cloudinary. What do you think?'.replace(
             ' ',
             '+'
           )
