@@ -1,5 +1,6 @@
 import { UploadApiResponse } from 'cloudinary'
 import { create } from 'zustand'
+import { Layout } from '../types/layouts'
 import { Effect } from '../types/presets'
 
 type StoreType = {
@@ -7,6 +8,7 @@ type StoreType = {
   effectObject: Effect | null
   background: string
   overlay: string
+  layout: Layout | null
   transformedUrl: string
   clouddinaryImage: UploadApiResponse | null
   setEffectObject: (effect: Effect) => void
@@ -15,6 +17,7 @@ type StoreType = {
   setOverlay: (overlay: string) => void
   setTransformedUrl: (transformedUrl: string) => void
   setClouddinaryImage: (clouddinaryImage: UploadApiResponse) => void
+  setLayout: (layout: Layout) => void
 }
 
 export const useEditorStore = create<StoreType>(set => ({
@@ -24,10 +27,12 @@ export const useEditorStore = create<StoreType>(set => ({
   overlay: '',
   transformedUrl: '',
   clouddinaryImage: null,
+  layout: null,
   setEffectObject: effectObject => set({ effectObject }),
   setEffect: effect => set({ effect }),
   setBackground: background => set({ background }),
   setOverlay: overlay => set({ overlay }),
   setTransformedUrl: transformedUrl => set({ transformedUrl }),
   setClouddinaryImage: clouddinaryImage => set({ clouddinaryImage }),
+  setLayout: layout => set({ layout }),
 }))

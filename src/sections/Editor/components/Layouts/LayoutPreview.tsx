@@ -9,7 +9,7 @@ export type TransformPreviewProps = {
   onClick?: () => void
 }
 
-export default function BackgroundPreview({
+export default function LayoutPreview({
   base,
   label,
   active,
@@ -18,7 +18,7 @@ export default function BackgroundPreview({
   return (
     <div
       onClick={onClick}
-      className={`aspect-square w-full rounded-2xl relative hover:opacity-80 hover:cursor-pointer transition-opacity mb-4 ${active ? 'border-4 border-pink-gradient shadow-xl' : ''}`}
+      className={`aspect-square w-full rounded-2xl relative hover:opacity-80 hover:cursor-pointer transition-opacity mb-4 ${active ? 'border-4 border-pink-gradient shadow-lg' : ''}`}
     >
       <CldImage
         src={base}

@@ -3,6 +3,8 @@ import {
   extractEffectAndBackgroundCloudinaryPlain,
 } from '@/lib/server/cloudinary/generative'
 import { defaultBackgrounds } from '../components/Backgrounds/defaultBackgrounds'
+import { defaultLayouts } from '../components/Layouts/defaultLayouts'
+import { Layout } from '../types/layouts'
 import { Effect } from '../types/presets'
 
 const useBuildImages = () => {
@@ -42,11 +44,13 @@ const useBuildImages = () => {
     background?: string
     overlay?: string
     prompt?: string
+    layout?: string
   }) => {
-    const { effect, background, prompt } = data
-    const result: {effect: Effect, background: string} = {
-      effect: {from: '', to: '', preserveGeometry: true},
+    const { effect, background, prompt, layout } = data
+    const result: {effect: Effect | null, background: string, layout: Layout | null} = {
+      effect: null,
       background: '',
+      layout: null
     }
 
     if (prompt) {
@@ -64,6 +68,13 @@ const useBuildImages = () => {
       const prompt = defaultBackgrounds.find(b => b.id === background)
       if (prompt) {
         result.background = prompt.plain_prompt
+      }
+    }
+
+    if(layout){
+      const layoutData = defaultLayouts.find(l => l.id === layout)
+      if(layoutData){
+        result.layout = layoutData
       }
     }
 

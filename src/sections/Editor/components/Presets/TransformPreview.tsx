@@ -29,7 +29,7 @@ export default function TransformPreview({
         style={{ objectFit: 'cover' }}
       />
 
-      <div className="absolute bg-primary z-10 bottom-[-20px] w-full text-center py-1 rounded-b-lg">
+      <div className="absolute bg-primary z-10 bottom-0 w-full text-center py-1 rounded-b-xl">
         <span className="z-10 line-clamp-1">{label}</span>
       </div>
       {active && (

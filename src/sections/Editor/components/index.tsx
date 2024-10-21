@@ -15,15 +15,16 @@ import Prompt from './Prompt'
 export default function Editor() {
   const query = useSearchParams()
   const { buildImageParams } = useBuildImages()
-  const { setBackground, setEffectObject } = useEditorStore()
+  const { setBackground, setEffectObject, setLayout } = useEditorStore()
 
   const isActiveStyle = useMemo(() => {
     const style = query.get('style')
     const background = query.get('background')
     const overlay = query.get('overlay')
     const prompt = query.get('prompt')
+    const layout = query.get('layout')
     const image = query.get('image')
-    return (style || background || overlay || prompt) && image
+    return (style || background || overlay || prompt || layout) && image
   }, [query])
 
   const applyStyle = async () => {
@@ -31,14 +32,19 @@ export default function Editor() {
     const backgroundQuery = query.get('background') || undefined
     const overlay = query.get('overlay') || undefined
     const prompt = query.get('prompt') || undefined
-    const { effect, background } = await buildImageParams({
+    const layoutParams = query.get('layout') || undefined
+    const { effect, background, layout } = await buildImageParams({
       effect: style,
       background: backgroundQuery,
       overlay,
       prompt,
+      layout: layoutParams,
     })
     setBackground(background as string)
     setEffectObject(effect as Effect)
+    if (layout) {
+      setLayout(layout)
+    }
 
     // scroll to canvas with id canvas
     const canvas = document.getElementById('canvas')

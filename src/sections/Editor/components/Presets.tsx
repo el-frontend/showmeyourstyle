@@ -1,5 +1,6 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import BackgroundPreset from './Backgrounds/BackgroundPreset'
+import LayoutPresets from './Layouts/LayoutPresets'
 import StylesPreset from './Presets/StylesPreset'
 
 export default function Presets() {
@@ -9,7 +10,7 @@ export default function Presets() {
         <TabsList className="mb-4">
           <TabsTrigger value="styles">Styles</TabsTrigger>
           <TabsTrigger value="backgrounds">Backgrounds</TabsTrigger>
-          {/* <TabsTrigger value="overlays">Overlays</TabsTrigger> */}
+          <TabsTrigger value="layouts">Layouts</TabsTrigger>
         </TabsList>
         <TabsContent value="styles" className="h-full">
           <StylesPreset />
@@ -17,9 +18,9 @@ export default function Presets() {
         <TabsContent value="backgrounds" className="h-full">
           <BackgroundPreset />
         </TabsContent>
-        {/* <TabsContent value="overlays" className="h-full">
-          Change your password here.
-        </TabsContent> */}
+        <TabsContent value="layouts" className="h-full">
+          <LayoutPresets />
+        </TabsContent>
       </Tabs>
     </>
   )
