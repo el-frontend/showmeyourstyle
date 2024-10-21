@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/images/logo.svg',
+        url: 'https://res.cloudinary.com/dr0ujyp54/image/upload/v1729523334/og/bo6wx4v39ds7vsvept01.png',
         width: 800,
         height: 600,
         alt: 'Show me your style',
