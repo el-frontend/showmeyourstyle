@@ -1,5 +1,9 @@
-import { extractEffectAndBackgroundCloudinary } from '@/lib/server/cloudinary/generative'
+import {
+  extractEffectAndBackgroundCloudinary,
+  extractEffectAndBackgroundCloudinaryPlain,
+} from '@/lib/server/cloudinary/generative'
 import { defaultBackgrounds } from '../components/Backgrounds/defaultBackgrounds'
+import { Effect } from '../types/presets'
 
 const useBuildImages = () => {
   const buildImageObject = async (data: {
@@ -33,7 +37,40 @@ const useBuildImages = () => {
     return result
   }
 
-  return { buildImageObject }
+  const buildImageParams = async (data: {
+    effect?: string
+    background?: string
+    overlay?: string
+    prompt?: string
+  }) => {
+    const { effect, background, prompt } = data
+    const result: {effect: Effect, background: string} = {
+      effect: {from: '', to: '', preserveGeometry: true},
+      background: '',
+    }
+
+    if (prompt) {
+      const { effect, background } =
+        await extractEffectAndBackgroundCloudinaryPlain(prompt)
+      result.effect = {from: 'outfit', to: effect, preserveGeometry: true}
+      result.background = background
+      return result
+    }
+
+    if (effect) {
+      result.effect = {from: 'outfit', to: effect, preserveGeometry: true}
+    }
+    if (background) {
+      const prompt = defaultBackgrounds.find(b => b.id === background)
+      if (prompt) {
+        result.background = prompt.plain_prompt
+      }
+    }
+
+    return result
+  }
+
+  return { buildImageObject, buildImageParams }
 }
 
 export default useBuildImages

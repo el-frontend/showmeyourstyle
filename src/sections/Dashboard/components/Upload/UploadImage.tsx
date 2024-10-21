@@ -2,18 +2,18 @@
 
 import { Button } from '@/components/ui/button'
 import {
-    Dialog,
-    DialogContent,
-    DialogHeader,
-    DialogTitle,
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
 } from '@/components/ui/dialog'
 import { Progress } from '@/components/ui/progress'
 import { ScrollArea } from '@/components/ui/scroll-area'
 import {
-    Tooltip,
-    TooltipContent,
-    TooltipProvider,
-    TooltipTrigger,
+  Tooltip,
+  TooltipContent,
+  TooltipProvider,
+  TooltipTrigger,
 } from '@/components/ui/tooltip'
 import { uploadImage } from '@/lib/server/cloudinary/upload'
 import { convertFileToBase64 } from '@/lib/server/utils/file'
@@ -22,6 +22,7 @@ import { AlertCircle, CheckCircle, File, Upload } from 'lucide-react'
 import Image from 'next/image'
 import { RefObject, useRef, useState } from 'react'
 import { useDropzone } from 'react-dropzone'
+import { toast } from 'sonner'
 
 interface FileWithPreview extends File {
   preview: string | null
@@ -47,8 +48,10 @@ export default function CloudinaryUploadImage({
   const fileInputRef: RefObject<HTMLInputElement> = useRef(null)
 
   const onDrop = (acceptedFiles: File[]) => {
-    console.log('Accepted files:', acceptedFiles)
-    console.log('Files:', files)
+    if (acceptedFiles.length === 0) {
+      toast.error('Invalid file type or file size')
+      return
+    }
     setFiles(files => [
       ...files,
       ...acceptedFiles.map(file =>
@@ -60,7 +63,6 @@ export default function CloudinaryUploadImage({
       ),
     ])
   }
-  
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -70,12 +72,11 @@ export default function CloudinaryUploadImage({
       'image/webp': ['.webp'],
     },
     maxFiles: 5,
-    maxSize: 5000000, // 5MB
+    maxSize: 3 * 1024 * 1024, // 3MB
     noClick: true, // Disable the default click behavior
   })
 
   const uploadFiles = async () => {
-    console.log('Uploading files:', files)
     setUploading(true)
     setUploadProgress(0)
     // Simulating upload process

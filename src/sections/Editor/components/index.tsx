@@ -7,21 +7,23 @@ import { useSearchParams } from 'next/navigation'
 import { useMemo } from 'react'
 import useBuildImages from '../hooks/useBuildImages'
 import { useEditorStore } from '../store/editor'
+import { Effect } from '../types/presets'
 import Canvas from './Canvas/Canvas'
 import Presets from './Presets'
 import Prompt from './Prompt'
 
 export default function Editor() {
   const query = useSearchParams()
-  const { buildImageObject } = useBuildImages()
-  const { setBackground, setEffect } = useEditorStore()
+  const { buildImageParams } = useBuildImages()
+  const { setBackground, setEffectObject } = useEditorStore()
 
   const isActiveStyle = useMemo(() => {
     const style = query.get('style')
     const background = query.get('background')
     const overlay = query.get('overlay')
     const prompt = query.get('prompt')
-    return style || background || overlay || prompt
+    const image = query.get('image')
+    return (style || background || overlay || prompt) && image
   }, [query])
 
   const applyStyle = async () => {
@@ -29,14 +31,14 @@ export default function Editor() {
     const backgroundQuery = query.get('background') || undefined
     const overlay = query.get('overlay') || undefined
     const prompt = query.get('prompt') || undefined
-    const { effect, background } = await buildImageObject({
+    const { effect, background } = await buildImageParams({
       effect: style,
       background: backgroundQuery,
       overlay,
       prompt,
     })
-    setBackground(background)
-    setEffect(effect)
+    setBackground(background as string)
+    setEffectObject(effect as Effect)
 
     // scroll to canvas with id canvas
     const canvas = document.getElementById('canvas')

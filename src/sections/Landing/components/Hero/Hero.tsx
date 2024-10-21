@@ -1,38 +1,39 @@
 'use client'
 
-import InteractiveImage from '@/components/image/InteractiveImage'
-
+import CloudinaryImage from '@/components/image/CloudinaryImage'
+import { Effect } from '@/sections/Editor/types/presets'
 import { useState } from 'react'
 import HeroActionButton from './HeroActionButton'
 
 const Hero = () => {
-  const [effect, setEffect] = useState<string>('')
+  const [effect, setEffect] = useState<Effect | null>(null)
 
   const changeEffect = (style: string) => {
-    setEffect(
-      `gen_replace:from_clothes%20and%20head;to_${style};preserve-geometry_true`
-    )
+    setEffect({ from: 'outfit', to: `${style}`, preserveGeometry: true })
   }
 
   const randomSpookyStyle = () => {
     const spookyStyles = [
-      'costume%20of%20a%20witch%20with%20a%20hat',
-      'costume%20of%20a%20vampire%20with%20a%20cape',
-      'costume%20of%20a%20ghost%20with%20a%20sheet',
-      'costume%20of%20a%20pirate%20with%20a%20hat',
-      'costume%20of%20a%20werewolf%20with%20a%20mask',
-      'costume%20of%20a%20skeleton%20with%20a%20mask',
-      'costume%20of%20a%20clown%20with%20a%20mask',
-      'costume%20of%20a%20superhero%20with%20a%20cape',
-      'costume%20of%20a%20zombie%20with%20a%20makeup',
-      'costume%20of%20a%20mummy%20with%20a%20bandage',
+      'costume of a witch with a hat',
+      'costume of a vampire with a cape',
+      'costume of a ghost with a sheet',
+      'costume of a pirate with a hat',
+      'costume of a werewolf with a mask',
+      'costume of a skeleton with a mask',
+      'costume of a clown with a mask',
+      'costume of a superhero with a cape',
+      'costume of a zombie with a makeup',
+      'costume of a mummy with a bandage',
     ]
     const randomIndex = Math.floor(Math.random() * spookyStyles.length)
     return spookyStyles[randomIndex]
   }
 
   return (
-    <div className="container mx-auto px-2 py-0 md:px-4 md:pt-12 bg-background relative rounded-none md:rounded-3xl overflow-hidden" id="hero">
+    <div
+      className="container mx-auto px-2 py-0 md:px-4 md:pt-12 bg-background relative rounded-none md:rounded-3xl overflow-hidden"
+      id="hero"
+    >
       <div className="relative flex flex-col md:flex-row min-h-[650px] overflow-hidden">
         <div className="w-full lg:w-3/5 p-4 lg:p-12 flex flex-col justify-start lg:justify-center">
           <h1 className="text-2xl md:text-5xl font-bold text-white mb-6">
@@ -48,44 +49,44 @@ const Hero = () => {
             </p>
             <div className="grid grid-cols-4 lg:grid-cols-3 gap-4">
               <HeroActionButton
-              text="Casual Style"
-              onClick={() => changeEffect('casual%20style%20outfit')}
+                text="Casual Style"
+                onClick={() => changeEffect('casual style outfit')}
               />
               <HeroActionButton
-              text="Chic Style"
-              onClick={() => changeEffect('chic%20style%20outfit')}
+                text="Chic Style"
+                onClick={() => changeEffect('chic style outfit')}
               />
               <HeroActionButton
-              text="Bohemian Style"
-              onClick={() => changeEffect('bohemian%20style%20outfit')}
+                text="Bohemian Style"
+                onClick={() => changeEffect('bohemian style outfit')}
               />
               <HeroActionButton
-              text="Streetwear Style"
-              onClick={() => changeEffect('streetwear%20style%20outfit')}
+                text="Streetwear Style"
+                onClick={() => changeEffect('streetwear style outfit')}
               />
               <HeroActionButton
-              text="Vintage Style"
-              onClick={() => changeEffect('vintage%20style%20outfit')}
+                text="Vintage Style"
+                onClick={() => changeEffect('vintage style outfit')}
               />
               <HeroActionButton
-              text="Athleisure Style"
-              onClick={() => changeEffect('athleisure%20style%20outfit')}
+                text="Athleisure Style"
+                onClick={() => changeEffect('athleisure style outfit')}
               />
               <HeroActionButton
-              text="Special Spooky Style"
-              onClick={() => changeEffect(`${randomSpookyStyle()}`)}
+                text="Special Spooky Style"
+                onClick={() => changeEffect(`${randomSpookyStyle()}`)}
               />
             </div>
           </div>
         </div>
         <div className="w-0 lg:w-2/5">
           <div className="absolute bottom-0 right-0">
-            <InteractiveImage
+            <CloudinaryImage
               src="sys-model-hd"
               width={600}
               height={600}
               alt="Hero Image"
-              effect={effect}
+              effect={effect || undefined}
             />
           </div>
         </div>

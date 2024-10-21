@@ -4,9 +4,11 @@ import useCreateQueryString from '@/hooks/useCreateQueryString'
 import { uploadImage } from '@/lib/server/cloudinary/upload'
 import { convertFileToBase64 } from '@/lib/server/utils/file'
 import { Image as ImageIcon, Upload } from 'lucide-react'
+import { CldImage } from 'next-cloudinary'
 import { useSearchParams } from 'next/navigation'
 import { useCallback } from 'react'
 import { useDropzone } from 'react-dropzone'
+import { toast } from 'sonner'
 import { defaultImages } from './defaultImages'
 
 export default function ImprovedImageUploader() {
@@ -16,19 +18,32 @@ export default function ImprovedImageUploader() {
 
   const onDrop = useCallback(async (acceptedFiles: File[]) => {
     const file = acceptedFiles[0]
+    // check file size not exceed 3mb
+    if (!file) {
+      toast.warning(
+        'Invalid file or file size is too big, please upload a file less than 3mb'
+      )
+      return
+    }
     const file64 = await convertFileToBase64(file)
     const uploadedFile = await uploadImage(file64)
-    createQueryAndNavigate([{ value: uploadedFile.secure_url, name: 'image' }], { scroll: false })
+    createQueryAndNavigate(
+      [{ value: uploadedFile.secure_url, name: 'image' }],
+      { scroll: false }
+    )
   }, [])
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
     accept: { 'image/*': [] },
     multiple: false,
+    maxSize: 3 * 1024 * 1024,
   })
 
   const handleExampleClick = (imageUrl: string) => {
-    createQueryAndNavigate([{ value: imageUrl, name: 'image' }], { scroll: false })
+    createQueryAndNavigate([{ value: imageUrl, name: 'image' }], {
+      scroll: false,
+    })
   }
 
   return (
@@ -68,7 +83,7 @@ export default function ImprovedImageUploader() {
               </button>
             </div>
             <p className="text-xs text-gray-500">
-              Supports: JPG, PNG, GIF (Max 5MB)
+              Supports: JPG, PNG, GIF (Max 3MB)
             </p>
           </div>
         </div>
@@ -92,8 +107,10 @@ export default function ImprovedImageUploader() {
                 className="relative group cursor-pointer"
                 onClick={() => handleExampleClick(src)}
               >
-                <img
+                <CldImage
                   src={src}
+                  width={80}
+                  height={80}
                   alt={`Example ${index + 1}`}
                   className="w-20 h-20 rounded-sm transition-transform transform group-hover:scale-105"
                 />

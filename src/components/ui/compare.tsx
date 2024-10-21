@@ -23,7 +23,7 @@ export default function Compare({
 }: CompareProps) {
   return (
     <ReactCompareSlider
-      itemOne={<ReactCompareSliderImage {...itemOne} />}
+      itemOne={<ReactCompareSliderImage {...itemOne}/>}
       itemTwo={<ReactCompareSliderImage {...itemTwo} />}
       portrait={false}
       className="rounded-lg shadow-md justify-self-center"

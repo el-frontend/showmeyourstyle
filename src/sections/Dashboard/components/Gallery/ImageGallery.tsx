@@ -8,7 +8,7 @@ import { useUser } from '@clerk/nextjs'
 import { UploadApiResponse } from 'cloudinary'
 import { motion } from 'framer-motion'
 import { UploadIcon, ZoomIn } from 'lucide-react'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
 import { useSearchParams } from 'next/navigation'
 import { useEffect, useState } from 'react'
 import DashboardEmptyImagePlaceholder from '../EmptyImagePlaceholder/EmptyImagePlaceholder'
@@ -91,7 +91,7 @@ export default function ImageGallery({ images }: Props) {
             transition={{ type: 'spring', stiffness: 300 }}
             onClick={() => onShowImage(image)}
           >
-            <Image
+            <CldImage
               src={image.url}
               fill
               alt={`Zoomed image ${index + 1}`}

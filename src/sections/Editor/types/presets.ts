@@ -5,3 +5,10 @@ export type Presets = {
   urlTransformation: string
   description: string
 }
+
+
+export type Effect = {
+  from: string
+  to: string
+  preserveGeometry: boolean
+}

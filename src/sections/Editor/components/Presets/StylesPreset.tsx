@@ -15,12 +15,11 @@ export default function StylesPreset() {
   }
   return (
     <div className="h-[calc(100vh/2)] grid grid-cols-3 gap-4 overflow-y-scroll">
-      {defaultStyles.map(({ id, urlBase, urlTransformation, description }) => (
+      {defaultStyles.map(({ id, urlTransformation, description }) => (
         <TransformPreview
           onClick={() => onSelect(id)}
           active={style === id}
           key={id}
-          base={urlBase}
           transformed={urlTransformation}
           label={description}
         />

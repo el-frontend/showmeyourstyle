@@ -1,6 +1,6 @@
 'use client'
 import { generateImage } from '@/lib/server/cloudinary/builder'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
 import { useCallback, useEffect, useState } from 'react'
 import SparkleImage from '../loading/SparkImageLoading/SparkImageLoading'
 
@@ -12,6 +12,7 @@ type Props = {
   effect?: string
   bgEffect?: string
   objectFit?: 'cover' | 'contain'
+  preserveTransformations?: boolean
   onUrlChange?: (url: string) => void
 }
 
@@ -24,6 +25,7 @@ const InteractiveImage: React.FC<Props> = ({
   bgEffect,
   onUrlChange,
   objectFit = 'cover',
+  preserveTransformations,
 }) => {
   const [url, setUrl] = useState<string>('')
   const [retry, setRetry] = useState<number>(0)
@@ -51,16 +53,24 @@ const InteractiveImage: React.FC<Props> = ({
   }, [src, height, width, effect, bgEffect])
 
   useEffect(() => {
-    getImageUrl()
-  }, [getImageUrl])
+    if (preserveTransformations) {
+      setUrl(src)
+      return
+    } else {
+      getImageUrl()
+    }
+  }, [getImageUrl, src, preserveTransformations])
 
   return (
     <SparkleImage loading={loading}>
-      <Image
+      <CldImage
         src={url}
-        {...(!width || !height ? { fill: true } : { width, height })}
+        width={width}
+        height={height}
         alt={alt}
+        sizes="100vw"
         style={{ objectFit }}
+        preserveTransformations={preserveTransformations}
       />
     </SparkleImage>
   )

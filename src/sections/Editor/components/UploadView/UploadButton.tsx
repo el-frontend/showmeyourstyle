@@ -4,6 +4,7 @@ import { uploadImage } from '@/lib/server/cloudinary/upload'
 import { convertFileToBase64 } from '@/lib/server/utils/file'
 import { Plus } from 'lucide-react'
 import { useRef, useState } from 'react'
+import { toast } from 'sonner'
 
 const UploadButton = () => {
   const refInput = useRef<HTMLInputElement>(null)
@@ -18,6 +19,13 @@ const UploadButton = () => {
     try {
       const file = e.target.files?.[0]
       if (!file) return
+
+      // check file size not exceed 3mb
+      if (file.size > 3 * 1024 * 1024) {
+        toast.warning('File size is too big, please upload a file less than 3mb')
+        setIsUploading(false)
+        return
+      }
 
       const file64 = await convertFileToBase64(file)
       const uploadedFile = await uploadImage(file64)
@@ -39,6 +47,8 @@ const UploadButton = () => {
         style={{ display: 'none' }}
         onChange={onUpload}
         disabled={isUploading}
+        accept="image/*"
+
       />
 
       {!isUploading && (

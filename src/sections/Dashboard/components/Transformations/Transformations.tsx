@@ -5,7 +5,7 @@ import useCreateQueryString from '@/hooks/useCreateQueryString'
 import { Transformations } from '@/lib/server/types/transformations'
 import { motion } from 'framer-motion'
 import { PlusCircle, ZoomIn } from 'lucide-react'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import { useState } from 'react'
 import DashboardEmptyImagePlaceholder from '../EmptyImagePlaceholder/EmptyImagePlaceholder'
@@ -79,7 +79,7 @@ const DashboardTransformations: React.FC<Props> = ({ data }) => {
                   className="relative group cursor-pointer"
                   onClick={() => onShowImage(image)}
                 >
-                  <Image
+                  <CldImage
                     src={image.baseImageUrl}
                     alt={`Original ${image.id}`}
                     width={300}
@@ -99,11 +99,13 @@ const DashboardTransformations: React.FC<Props> = ({ data }) => {
                   className="relative group cursor-pointer"
                   onClick={() => onShowImage(image, true)}
                 >
-                  <Image
+                  
+                  <CldImage
                     src={image.url}
                     alt={`Transformed ${image.id}`}
                     width={300}
                     height={300}
+                    preserveTransformations
                     className="w-full h-auto rounded-lg"
                   />
                   <div className="absolute inset-0 bg-gray-700 bg-opacity-0 group-hover:bg-opacity-30 transition-opacity duration-300 rounded-lg flex items-center justify-center">

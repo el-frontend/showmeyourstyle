@@ -1,9 +1,9 @@
-import InteractiveImage from '@/components/image/InteractiveImage'
-import { useEffect, useState } from 'react'
+import CloudinaryImage from '@/components/image/CloudinaryImage'
+import { Effect } from '../../types/presets'
 
 export type PreviewProps = {
   image: string
-  effect?: string
+  effect?: Effect
   background?: string
   overlay?: string
   onUrlChange?: (url: string) => void
@@ -15,13 +15,6 @@ export default function Preview({
   background,
   onUrlChange,
 }: PreviewProps) {
-  const [imageBase, setImageBase] = useState('')
-
-  useEffect(() => {
-    const split = image.split('/')
-    const base = split.pop()?.split('.')[0] ?? image
-    setImageBase(base)
-  }, [image])
 
   return (
     <>
@@ -35,9 +28,9 @@ export default function Preview({
       />
 
       <div className="flex absolute z-10 bottom-0 justify-center right-0 left-0 top-0">
-        {imageBase && (
-          <InteractiveImage
-            src={imageBase}
+        {image && (
+          <CloudinaryImage
+            src={image}
             width={800}
             height={800}
             alt="Transformed Image"
@@ -45,6 +38,7 @@ export default function Preview({
             bgEffect={background}
             onUrlChange={onUrlChange}
             objectFit="contain"
+            preserveTransformations
           />
         )}
       </div>
