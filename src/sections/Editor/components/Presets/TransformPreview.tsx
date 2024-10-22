@@ -24,9 +24,9 @@ export default function TransformPreview({
       <CldImage
         src={transformed}
         alt="Top Image"
-        fill
+        width={160}
+        height={160}
         onClick={onClick}
-        preserveTransformations
         className={`rounded-xl transition-opacity duration-1000 ease-in-out`}
         style={{ objectFit: 'cover' }}
       />

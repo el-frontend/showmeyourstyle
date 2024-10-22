@@ -74,6 +74,7 @@ const CloudinaryImage: React.FC<Props> = ({
           {...(bgEffect && { replaceBackground: bgEffect })}
           alt={alt}
           sizes="100vw"
+          format='auto'
           style={{ objectFit }}
           preserveTransformations={preserveTransformations}
           onLoad={onLoad}

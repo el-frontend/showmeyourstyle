@@ -1,1 +1,1 @@
-export const defaultImages = ['https://res.cloudinary.com/dr0ujyp54/image/upload/v1/sys-model-hd.jpg', 'https://res.cloudinary.com/dr0ujyp54/image/upload/v1/sys-model-black-hair.jpg', 'https://res.cloudinary.com/dr0ujyp54/image/upload/v1/sys-model-base.jpg']
+export const defaultImages = ['https://res.cloudinary.com/dr0ujyp54/image/upload/f_auto,q_auto/v1/sys-model-hd', 'https://res.cloudinary.com/dr0ujyp54/image/upload/f_auto,q_auto/v1/sys-model-black-hair', 'https://res.cloudinary.com/dr0ujyp54/image/upload/f_auto,q_auto/v1/sys-model-base']
