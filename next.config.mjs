@@ -8,6 +8,7 @@ const nextConfig = {
       bodySizeLimit: '3mb',
     },
   },
+  transpilePackages: ['three']
 }
 
 export default nextConfig
