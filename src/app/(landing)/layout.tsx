@@ -2,6 +2,7 @@ import Header from '@/sections/Landing/components/Header/Header'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://https://showmeyourstyle.vercel.app'),
   title: 'Show me your style',
   description: 'Unleash your style with AI-driven fashion creations',
   keywords: [
@@ -16,21 +17,7 @@ export const metadata: Metadata = {
     { name: 'Carlos Chao Cortes', url: 'https://youtube.com/@ElFrontend' },
     { name: 'Abel Rodriguez', url: '' },
   ],
-  robots: 'index, follow',
-  openGraph: {
-    title: 'Show me your style',
-    description: 'Unleash your style with AI-driven fashion creations',
-    url: 'https://showmeyourstyle.vercel.app',
-    type: 'website',
-    images: [
-      {
-        url: 'https://res.cloudinary.com/dr0ujyp54/image/upload/v1729523334/og/bo6wx4v39ds7vsvept01.png',
-        width: 800,
-        height: 600,
-        alt: 'Show me your style',
-      },
-    ],
-  },
+  robots: 'index, follow'
 }
 
 export default function LandingLayout({
