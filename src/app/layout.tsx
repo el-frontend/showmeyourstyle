@@ -14,10 +14,19 @@ const jollyLodger = Jolly_Lodger({
   variable: '--font-spooky',
 })
 
+const baseUrl = process.env.NEXT_PUBLIC_VERCEL_URL
+  ? `https://${process.env.NEXT_PUBLIC_VERCEL_URL}`
+  : 'http://localhost:3000'
+const twitterCreator = '@chao_cortes'
+const twitterSite = 'https://x.com/cortes_chao'
+const SITE_NAME = 'Show me your style'
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://https://showmeyourstyle.vercel.app'),
-  title: 'Show me your style',
-  description: 'Unleash your style with AI-driven fashion creations',
+  metadataBase: new URL(baseUrl),
+  title: {
+    default: SITE_NAME!,
+    template: `%s | ${SITE_NAME}`,
+  },
   keywords: [
     'AI fashion',
     'style',
@@ -30,7 +39,18 @@ export const metadata: Metadata = {
     { name: 'Carlos Chao Cortes', url: 'https://youtube.com/@ElFrontend' },
     { name: 'Abel Rodriguez', url: '' },
   ],
-  robots: 'index, follow'
+  robots: {
+    follow: true,
+    index: true,
+  },
+  ...(twitterCreator &&
+    twitterSite && {
+      twitter: {
+        card: 'summary_large_image',
+        creator: twitterCreator,
+        site: twitterSite,
+      },
+    }),
 }
 
 export default function RootLayout({

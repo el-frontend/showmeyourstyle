@@ -3,22 +3,8 @@ import DashboardContainer from '@/sections/Dashboard/container/DashboardContaine
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://https://showmeyourstyle.vercel.app'),
   title: 'Show me your style - Dashboard',
   description: 'Unleash your style with AI-driven fashion creations',
-  keywords: [
-    'AI fashion',
-    'style',
-    'fashion creations',
-    'personalized fashion',
-    'cloudinary',
-    'midudev',
-  ],
-  authors: [
-    { name: 'Carlos Chao Cortes', url: 'https://youtube.com/@ElFrontend' },
-    { name: 'Abel Rodriguez', url: '' },
-  ],
-  robots: 'index, follow'
 }
 
 export default function RootLayout({
