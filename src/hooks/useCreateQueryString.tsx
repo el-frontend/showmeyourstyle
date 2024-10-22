@@ -26,7 +26,14 @@ const useCreateQueryString = () => {
     replace(`${pathname}?${newSearchParams}`, options)
   }
 
-  return { addSearchParams, createQueryAndNavigate }
+  const removeQueryAndNavigate = (query: string, options?: { scroll?: boolean }) => {
+    const params = new URLSearchParams(searchParams)
+    params.delete(query)
+    const newUrl = params.toString() ? `${pathname}?${params.toString()}` : pathname
+    replace(newUrl, options)
+  }
+
+  return { addSearchParams, createQueryAndNavigate, removeQueryAndNavigate }
 }
 
 export default useCreateQueryString

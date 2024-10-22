@@ -21,17 +21,17 @@ const Header = () => {
         >
           <ul className="flex space-x-6 text-base font-semibold text-white ">
             <li>
-              <a href="#hero" className="hover:text-background">
+              <a href="#hero" className="hover:text-gray-200">
                 Home
               </a>
             </li>
             <li>
-              <a href="#stylize_you" className="hover:text-background">
+              <a href="#stylize_you" className="hover:text-gray-200">
                 Stylize you
               </a>
             </li>
             <li>
-              <a href="#showcase" className="hover:text-background">
+              <a href="#showcase" className="hover:text-gray-200">
                 Showcase
               </a>
             </li>
