@@ -23,7 +23,7 @@ const Footer = () => {
           <span className="font-spooky text-4xl">Cloudinary x Midudev</span>
         </div>
         <div className="flex flex-col justify-center items-center gap-1 text-lg">
-          <p className="text-white">
+          <p className="text-white text-center">
             Show me your style, an application made for you with ❤️
           </p>
           <p className="text-white">

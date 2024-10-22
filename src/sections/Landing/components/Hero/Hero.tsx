@@ -43,10 +43,10 @@ const Hero = () => {
         {isLg && <HalloweenTheme />}
         <div className="relative flex flex-col md:flex-row min-h-[600px] lg:min-h-[650px] overflow-hidden">
           <div className="w-full lg:w-3/5 p-4 lg:p-12 flex flex-col justify-start lg:justify-center">
-            <h1 className="text-4xl lg:text-7xl font-bold mb-6 font-spooky text-white">
+            <h1 className="text-4xl lg:text-7xl font-bold mb-6 font-spooky text-white text-center md:text-left">
               Unleash Your Style with AI-Driven Fashion Creations
             </h1>
-            <p className="text-gray-100 mb-8 text-lg lg:text-2xl">
+            <p className="text-gray-100 mb-8 text-lg lg:text-2xl hidden md:block">
               Transform your wardrobe by uploading photos and letting AI design
               unique outfits tailored to your preferences.
             </p>
@@ -54,7 +54,7 @@ const Hero = () => {
               <p className="text-white font-semibold mb-6 text-xl hidden md:block">
                 Try it now!! ✨
               </p>
-              <div className="grid grid-cols-4 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-4 lg:grid-cols-3 gap-4 p-2 lg:p-0">
                 <HeroActionButton
                   text="Casual Style"
                   onClick={() => changeEffect('casual style outfit')}

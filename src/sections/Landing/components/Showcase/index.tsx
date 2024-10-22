@@ -56,11 +56,11 @@ export default function Showcase() {
         className="absolute right-6 lg:right-12 top-0 animate-elastic"
       />
       <div className="container mx-auto py-24 px-2 lg:px-16 " id="showcase">
-        <div className="flex flex-col gap-4 md:flex-row justify-center md:justify-between items-center mb-16">
-          <h2 className="text-2xl lg:text-6xl font-bold text-foreground font-spooky">
+        <div className="flex flex-col gap-4 lg:flex-row justify-center md:justify-between items-center mb-16">
+          <h2 className="text-5xl lg:text-6xl font-bold text-foreground font-spooky">
             Showcase
           </h2>
-          <div className="max-w-[60ch]  border-foreground border-4 p-8 text-foreground text-lg">
+          <div className="hidden md:block max-w-[60ch]  border-foreground border-4 p-8 text-foreground text-lg">
             <p>
               Explore the limitless possibilities of fashion with our AI-powered
               design tool! Each image in our showcase is the result of
