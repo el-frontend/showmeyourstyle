@@ -48,13 +48,13 @@ const CloudinaryImage: React.FC<Props> = ({
   }
 
   const onError = () => {
-    if (retries < 3) {
+    if (retries < 4) {
       setHasError(true)
       setRetries((r) => r + 1)
       setTimeout(() => {
         setHasError(false)
         setLoading(true)
-      }, 500)
+      }, 3000)
     } else {
       setLoading(false)
       setHasError(false)
