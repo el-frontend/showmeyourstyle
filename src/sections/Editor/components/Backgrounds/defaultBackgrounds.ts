@@ -10,7 +10,7 @@ export const defaultBackgrounds: Backgrounds[] = [
   },
   {
     id: 'halloween',
-    prompt: 'gen_background_replace:prompt_halloween%20decoration',
+    prompt: 'gen_background_replace:prompt_halloween%20decoration%20not%20add%20faces%20or%20peoples',
     plain_prompt: 'halloween decoration',
     url: 'https://res.cloudinary.com/dr0ujyp54/image/upload/v1729186981/backgrounds/halloween.png',
     description: 'Halloween',

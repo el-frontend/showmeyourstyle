@@ -14,21 +14,21 @@ const Hero = () => {
   const { isLg } = useBreakpoints()
 
   const changeEffect = (style: string) => {
-    setEffect({ from: 'outfit', to: `${style}`, preserveGeometry: true })
+    setEffect({ from: 'all_clothes', to: `${style}`, preserveGeometry: true })
   }
 
   const randomSpookyStyle = () => {
     const spookyStyles = [
-      'costume of a witch with a hat',
-      'costume of a vampire with a cape',
-      'costume of a ghost with a sheet',
-      'costume of a pirate with a hat',
-      'costume of a werewolf with a mask',
-      'costume of a skeleton with a mask',
-      'costume of a clown with a mask',
-      'costume of a superhero with a cape',
-      'costume of a zombie with a makeup',
-      'costume of a mummy with a bandage',
+      'costume of a witch with flowing black robes and a broomstick',
+      'costume of a vampire with a cape elegant evening wear and fangs',
+      'costume of a ghost with a sheet ethereal gown and chains',
+      'costume of a pirate with rugged pirate attire and a cutlass',
+      'costume of a werewolf with tattered clothing and claws',
+      'costume of a skeleton with bone-patterned suit and gloves',
+      'costume of a clown with colorful jumpsuit and oversized shoes',
+      'costume of a superhero with a spandex suit and mask',
+      'costume of a zombie with makeup ripped dirty clothes and fake blood',
+      'costume of a mummy with bandages ancient wrappings and amulets',
     ]
     const randomIndex = Math.floor(Math.random() * spookyStyles.length)
     return spookyStyles[randomIndex]
@@ -54,36 +54,36 @@ const Hero = () => {
               <p className="text-white font-semibold mb-6 text-xl hidden md:block">
                 Try it now!! ✨
               </p>
-              <div className="grid grid-cols-4 lg:grid-cols-3 gap-4 p-2 lg:p-0">
+                <div className="grid grid-cols-4 lg:grid-cols-3 gap-4 p-2 lg:p-0">
                 <HeroActionButton
                   text="Casual Style"
-                  onClick={() => changeEffect('casual style outfit')}
+                  onClick={() => changeEffect('a casual style outfit featuring a comfortable plain t-shirt jeans and sneakers perfect for everyday wear')}
                 />
                 <HeroActionButton
                   text="Chic Style"
-                  onClick={() => changeEffect('chic style outfit')}
+                  onClick={() => changeEffect('a chic style outfit with a tailored blazer over a silk blouse and high-heeled shoes ideal for a sophisticated look')}
                 />
                 <HeroActionButton
                   text="Bohemian Style"
-                  onClick={() => changeEffect('bohemian style outfit')}
+                  onClick={() => changeEffect('a bohemian style outfit with a flowy maxi dress a wide-brimmed hat and layered necklaces inspired by boho fashion')}
                 />
                 <HeroActionButton
                   text="Streetwear Style"
-                  onClick={() => changeEffect('streetwear style outfit')}
+                  onClick={() => changeEffect('a streetwear style outfit with a graphic hoodie ripped jeans and high-top sneakers reflecting modern street fashion')}
                 />
                 <HeroActionButton
                   text="Vintage Style"
-                  onClick={() => changeEffect('vintage style outfit')}
+                  onClick={() => changeEffect('a vintage style outfit with a polka dot dress cat-eye sunglasses and retro pumps reminiscent of past fashion eras')}
                 />
                 <HeroActionButton
                   text="Athleisure Style"
-                  onClick={() => changeEffect('athleisure style outfit')}
+                  onClick={() => changeEffect('an athleisure style outfit combining a fitted sports t-shirt leggings and a zip-up hoodie perfect for a sporty yet casual look')}
                 />
                 <HeroActionButton
                   text="Special Spooky Style"
-                  onClick={() => changeEffect(`${randomSpookyStyle()}`)}
+                  onClick={() => changeEffect(`${randomSpookyStyle()} with intricate details and accessories to complete the spooky transformation`)}
                 />
-              </div>
+                </div>
             </div>
           </div>
           <div className="w-0 lg:w-2/5">

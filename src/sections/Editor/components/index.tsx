@@ -40,11 +40,13 @@ export default function Editor() {
       prompt,
       layout: layoutParams,
     })
+  
     setBackground(background as string)
     setEffectObject(effect as Effect)
     if (layout) {
       setLayout(layout)
     }
+    
 
     // scroll to canvas with id canvas
     const canvas = document.getElementById('canvas')

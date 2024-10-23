@@ -41,7 +41,6 @@ export default function Preview({
             bgEffect={background}
             onUrlChange={onUrlChange}
             objectFit="contain"
-            preserveTransformations
             crop={
               {
                 ...(layout?.aspectRatio && { aspectRatio: layout.aspectRatio }),

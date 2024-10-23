@@ -70,8 +70,8 @@ const CloudinaryImage: React.FC<Props> = ({
           width={width}
           height={height}
           onError={onError}
-          {...(effect && { replace: effect })}
           {...(bgEffect && { replaceBackground: bgEffect })}
+          {...(effect && { replace: effect })}
           alt={alt}
           sizes="100vw"
           format='auto'

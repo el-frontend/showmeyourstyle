@@ -4,6 +4,7 @@ import {
 } from '@/lib/server/cloudinary/generative'
 import { defaultBackgrounds } from '../components/Backgrounds/defaultBackgrounds'
 import { defaultLayouts } from '../components/Layouts/defaultLayouts'
+import { defaultStyles } from '../components/Presets/defaultStyles'
 import { Layout } from '../types/layouts'
 import { Effect } from '../types/presets'
 
@@ -61,9 +62,12 @@ const useBuildImages = () => {
       const { effect, background } =
         await extractEffectAndBackgroundCloudinaryPlain(prompt)
       if (effect) {
-        result.effect = { from: 'outfit', to: effect, preserveGeometry: true }
+        result.effect = {
+          from: 'outfit',
+          to: effect,
+          preserveGeometry: true,
+        }
       }
-      result.effect = { from: 'outfit', to: effect, preserveGeometry: true }
       if (background) {
         result.background = background
       }
@@ -72,7 +76,14 @@ const useBuildImages = () => {
     }
 
     if (effect) {
-      result.effect = { from: 'outfit', to: effect, preserveGeometry: true }
+      const styleEffect = defaultStyles.find(b => b.id === effect)
+      if (styleEffect) {
+        result.effect = {
+          from: 'outfit',
+          to: styleEffect.prompt,
+          preserveGeometry: true,
+        }
+      }
     }
     if (background) {
       const prompt = defaultBackgrounds.find(b => b.id === background)
